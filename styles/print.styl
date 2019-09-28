@@ -1,0 +1,195 @@
+// Real size
+$margin-mm = 25mm
+$page-width-mm = 210mm
+$page-height-mm = 297mm
+
+// Printer size
+$border-margin-mm = $margin-mm
+$middle-margin-mm = 12mm
+
+$slide-width-mm = $page-width-mm - 2*$border-margin-mm
+$slide-height-mm = $slide-width-mm * $screen-ratio-height / $screen-ratio-width
+
+$notes-height-mm = $page-height-mm - $slide-height-mm - 2*$border-margin-mm - $middle-margin-mm
+$slide-bottom-margin-mm = $page-height-mm - $slide-height-mm - $border-margin-mm
+$slide-top-margin-mm = $border-margin-mm - 5
+
+@media print and (orientation:portrait)
+  @page
+    size A4
+
+  html
+    font-size unit(11 / $screen-ratio, 'px')
+
+  section 
+    width $slide-width-mm
+    height $slide-height-mm
+    background none
+    padding-top 0.5rem
+
+  .bespoke-parent, .bespoke-slide
+    margin unset
+    position relative
+    overflow visible
+    top unset
+    right unset
+    bottom unset
+    left unset
+    z-index -10
+
+  .bespoke-parent
+    background none
+    color #000000
+
+  .bespoke-slide
+    opacity 1
+    background none
+    // border solid 1px black
+    margin $slide-top-margin-mm auto $slide-bottom-margin-mm auto  // Bottom margin is useful for "Emulate CSS Media : print" on Chrome
+    page-break-after always
+
+    h2
+      background-image unset
+      border-bottom unset
+      font-size 3.5rem              // Make place for a larger logo (inserted with pdftk)
+      padding 1rem 15rem 4rem 1rem  // 
+      
+    pre.source
+      border solid 1px grey 
+      code
+        overflow-x hidden
+
+    table 
+      caption        
+        background-color #dddddd
+
+    aside[role=notes]
+      display block
+      // border solid 1px black
+      padding 0.5rem 2rem 1rem 2rem
+      position absolute
+      top ($slide-height-mm + $middle-margin-mm)
+      left 0
+      height $notes-height-mm
+      width $slide-width-mm
+      font-size 1.5rem
+      text-align justify
+      p
+        line-height 1.8rem
+      ul
+        padding-left 2rem
+        li
+          list-style-type square
+          font-size 1.5rem
+          line-height 1.8rem
+          margin 0.3rem 0
+      pre.source, pre
+        margin 1rem 5rem 2rem 5rem 
+        border solid 1px grey 
+        code
+          font-size 1rem
+          padding 0.2rem 0.2rem
+          border none
+          display block
+          overflow-x auto
+          color #333
+          background-color #eee
+          text-align left
+      table
+        p
+          margin 0
+
+  .bespoke-bullet-inactive
+    visibility visible
+
+  .title
+    background-color #efefef
+    color black
+
+  #title
+    border none
+    margin 0
+    height unit($page-height-mm, 'mm')
+    width  unit($page-width-mm, 'mm')
+    grid-template-rows 40rem
+    align-items center
+    aside[role=notes]
+      visibility hidden
+    h2
+      font-size 200%
+      align-self end
+
+  section#toc-detail
+    border none
+    visibility hidden
+    margin-bottom 0
+    background-color #444444
+
+    aside[role=notes]
+      opacity 1
+      top 0
+      visibility visible
+      height unit($page-height-mm - 2*$border-margin-mm, 'mm')
+      color #000000
+
+      h2
+        font-size 2rem
+        margin-top 0
+        padding-top 0
+
+      ul li
+        font-size 1.5rem
+        line-height normal 
+        list-style-type none
+
+      li.toc2
+        font-size 1.3rem
+        margin-left 1rem
+
+      li
+        a
+          color $color-text
+          display grid
+          grid-template-columns auto minmax(5rem, max-content)
+          text-decoration none
+
+          span:nth-of-type(1)
+            overflow hidden
+            white-space nowrap
+          span:nth-of-type(1):after
+            margin-left 0.6rem
+            content "...................................................................................................................................................................................................................."
+          span:nth-of-type(2)
+            text-align right
+            overflow hidden
+            margin-left 1rem
+
+@media print and (orientation:landscape)
+  html
+    background-color yellow
+
+  .bespoke-parent, .bespoke-scale-parent, .bespoke-slide
+    margin unset
+    position relative
+    top unset
+    right unset
+    bottom unset
+    left unset
+    z-index -10
+
+  .bespoke-parent
+    overflow visible
+
+  .bespoke-scale-parent
+    transform unset !important
+
+  .bespoke-slide
+    opacity unset
+    zoom unset !important
+
+  .bespoke-bullet-inactive
+    opacity unset
+    visibility visible
+
+  ul:first-of-type
+    padding-top 0.01rem // workaround to have the right li margin on landscape pdf

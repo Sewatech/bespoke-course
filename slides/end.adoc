@@ -1,0 +1,14 @@
+//=========================================================
+[.title.no-toc,id="toc-detail"]
+== {title}
+
+[.author]
+[.contact]#{twitter}#
+
+[.margin-top-2em]
+*FIN*
+
+[.cue]
+****
+****
+

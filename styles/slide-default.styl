@@ -1,0 +1,189 @@
+body
+  counter-reset page-number
+  vertical-align top
+
+h2
+  font-size 4rem
+  font-weight bold
+  padding  0 0 2rem 0
+  margin  0 0 0.6rem 0
+  border-bottom 0.3rem solid #888
+  background-image url(../images/logo/sewatech-lite.png)
+  background-position 95%  
+  background-repeat no-repeat
+  background-size auto 80%
+
+/* Bullet points */
+ul
+  padding-left 2.5rem
+  margin 0
+  li
+    margin 1.2rem 0 
+    list-style-type none
+    list-style-image none
+  li:empty
+    list-style none
+  ol
+    li
+      margin 0.6rem 0 0 0 
+      list-style-type decimal
+      font-size 2.5rem
+  ul 
+    li
+      margin 0.6rem 0 0 0 
+      list-style-type circle
+      font-size 2.5rem
+      ul 
+        li
+          margin 0.3rem 0 0 0.6rem
+          list-style-type: square
+          font-size: 2.2rem
+  &.level2 
+    margin 0.6rem 0.5px 0.6rem 2.5rem
+    li
+      margin 0.6rem 0 0 0 
+      list-style-type circle
+      font-size 2.5rem
+    ul
+      li
+        margin 0.3rem 0 0 0.6rem
+        list-style-type square
+        font-size 2.2rem
+
+a
+  color #2e2e2e
+
+code
+  font-size 1.1em
+  color #707070
+
+pre.source  
+  margin 0.5rem 1rem
+  border 0.1rem solid #888  
+  font-size 1.6rem
+  background-color #fff6d1
+  code
+    padding 0.1rem 0.2rem
+    // already in .hljs, useful when no language
+    background-color #fff6d1
+    display: block;
+    overflow-x: auto;
+    color: #000;
+    font-size 1.6rem
+  &.small
+    code
+      font-size 1.35rem
+  &.big
+    code
+      font-size 1.8rem
+  &.blue
+    background-color: #ccffff
+    code
+      background-color: #ccffff
+  &.green
+    background-color: #ccff00
+    code
+      background-color: #ccff00
+  &.red
+    background-color: #ffccff
+    code
+      background-color: #ffccff
+
+  &.fit-content
+    width: fit-content
+    padding-right: 2rem
+
+blockquote
+  margin 3rem 5rem
+  font-size 3rem
+  font-style italic
+  p
+    font-family "Noto Serif"
+    letter-spacing 0.2rem
+    // text-align justify
+    &::before
+      content: "\201c\00a0";
+      font-weight: bold;
+      color: #7a2717;
+    &::after
+      content "\00a0\201d";
+      font-weight: bold;
+      color: #7a2717;
+  cite
+    font-size 0.8rem
+    font-style normal
+    color #bbb
+
+section
+  &:after
+    counter-increment: page-number; 
+    content counter(page-number)
+    position absolute
+    bottom 0.6rem
+    right 0.6rem
+    padding-right 1.5rem
+    font-size 1.3rem
+    display flex
+    align-items flex-end
+    justify-content flex-end
+  &:before
+    content $copyright
+    position absolute
+    bottom 0.6rem
+    left 0.6rem
+    font-size 1rem
+  &.center *
+    text-align center
+    margin-left auto
+    margin-right auto
+  &.center h2
+    text-align left
+    margin-left 0
+    margin-right 0
+  .center
+    text-align center
+    margin-left auto
+    margin-right auto
+
+.small
+  font-size 80%
+.line-through
+  text-decoration line-through
+.underline
+  text-decoration underline
+
+h2:hover ~ aside[role=notes]
+  display block
+
+@media screen
+  aside[role=notes]
+    background-color #dfdfde
+    position absolute
+    top 0
+    left 0
+    z-index 100
+    font-size 40%
+    margin-top 8rem
+    padding 10%
+    padding-top 2rem
+    height 100%
+    width: 100%
+    ul
+      padding-left 2rem
+      li
+        list-style-type square
+        margin 0
+        ul
+          li
+            font-size unset
+    pre.source
+      code
+        font-size 1rem
+    table
+      font-size 1rem
+  .title aside[role=notes]
+    background-color #4d668d
+    margin-top 15rem
+    text-align left
+    li
+      line-height 1.5

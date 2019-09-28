@@ -1,0 +1,45 @@
+//=========================================================
+[.no-toc.title,id=title]
+== {title}
+
+ifdef::title-picture[image::{title-picture}["{title}", {title-picture-width}, {title-picture-height}]]
+
+[.author.margin-top-5]
+* {author}
+
+[.cue] 
+****
+****
+
+//=========================================================
+[.no-toc.small,id=toc]
+== !
+
+[.cue]
+****
+Un plan plus détaillé est fourni en fin de support.
+****
+
+//=========================================================
+[.grid.col-2.no-gap.no-toc,id=speaker]
+== {author}
+
+* Développeur
+* Formateur
+* Indépendant +
+image:logo/sewatech.png[sewatech, 20rem]
+
+//^
+
+* Co-fondateur +
+image:logo/lyonjug.png[Lyon JUG, 20rem]
+
+* Ex-préparateur *&#9749;* +   
+image:logo/mixit.png[Mix-IT, 20rem] 
+
+* Orateur
+** DevoxxFr, SunnyTech, SnowCamp,...
+
+[.cue]
+****
+****

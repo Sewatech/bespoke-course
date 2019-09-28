@@ -1,0 +1,88 @@
+*, ::before, ::after
+  box-sizing inherit
+
+html
+  box-sizing border-box
+  quotes "\201c" "\201d"
+
+figure
+  margin 0
+
+img, video
+  vertical-align middle
+
+p, li 
+  line-height normal
+p
+  line-height 1.5
+  margin 0 0 0.75rem 0
+
+html, body, h1, h2, ul, li
+  -webkit-margin-before 0
+  -webkit-margin-after  0
+  -webkit-padding-start 0
+
+article
+  overflow hidden
+  background-color #ccc
+  font-family "Roboto", sans-serif
+  font-size 3em
+  color $color-text
+  font-feature-settings "kern" 1
+  text-rendering optimizeLegibility
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  position absolute
+  top 0
+  right 0
+  bottom 0
+  left 0
+  pointer-events none
+  // NOTE hide deck and slide content until Bespoke.js classes have been added
+  &:not(.bespoke-parent), section:not(.bespoke-slide)
+    display none
+
+section
+  overflow hidden
+  opacity 0 // NOTE force opacity to start at 0 to avoid transition on load when using bespoke-scale
+  background-color #fafafa
+  position absolute
+  top 50%
+  left 50%
+  padding 1rem
+  display flex
+  align-items stretch
+  justify-content top
+  flex-direction column
+  transition none
+
+  &.bespoke-active
+    pointer-events auto
+    opacity 1
+    z-index 1 // NOTE Webkit requires z-index to be 1 for elements to receive focus (may no longer apply)
+
+  &.bespoke-bullet-inactive
+    visibility hidden
+
+  aside[role=notes]
+    display none
+  
+@media (max-aspect-ratio: $screen-ratio-width / $screen-ratio-height )
+  html
+    font-size 1.8vw * (1 / $screen-ratio)
+
+  section
+    width 100vw
+    height 100vw * (1 / $screen-ratio)
+    margin-left -(@width / 2)
+    margin-top -(@height / 2)
+
+@media (min-aspect-ratio: $screen-ratio-width / $screen-ratio-height )
+  html
+    font-size 1.8vh
+
+  section
+    width 100vh * ($screen-ratio)
+    height 100vh
+    margin-left -(@width / 2)
+    margin-top -(@height / 2)

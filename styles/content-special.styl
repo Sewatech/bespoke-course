@@ -1,0 +1,125 @@
+/* Diagrams */
+.uml
+  background-color #cdcdcd
+  fill #cdcdcd !important
+  border solid 0.2rem grey
+  margin 1rem 1rem
+  -webkit-padding-start 0
+  padding 0
+  li
+    text-align center
+    font-size 2rem
+    padding 0
+    margin 0
+    ul
+      padding: 0
+      li
+        text-align left
+        font-size 1.8rem
+        list-style-type none
+        margin 0
+        padding 0 1rem
+        min-height 1rem
+        border-bottom unset
+        &:first-child
+          border-top solid 0.2rem grey
+  &.small
+    li
+      font-size 1.7rem
+      ul li
+          font-size 1.5rem
+  &.very-small
+    li
+      font-size 1.4rem
+      ul li
+          font-size 1.2rem
+  img 
+    vertical-align 0
+
+  span.very-small
+    font-size 1.2rem
+
+
+.grayscale
+  filter grayscale(100%)
+
+table
+  color: #000000
+  // text-align: left
+  font-size: 1.6rem
+  &.small
+    font-size: 1.4rem
+  p
+    line-height 1.1
+    margin 0
+  thead tr th
+    background-color #b3b3b3
+    padding 0.4rem 0.2rem 0.6rem 1rem 
+  tbody 
+    tr:nth-child(odd)
+      background-color: #cccccc
+    tr:nth-child(even)
+      background-color: #e6e6e6
+    tr td
+      padding: 0.4rem 0.2rem 0.4rem 1rem
+  .halign-center
+    text-align center
+  .halign-left
+    text-align left
+  .halign-right
+    text-align right
+
+.not
+  position: relative;
+.not::after
+  content: ""
+  background-image: url('../images/misc/not.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  top: 0
+  left: 0
+  position: absolute
+  width: 100%
+  height: 100%
+  display: block
+
+.admonitionblock
+  table
+    tr:nth-child(2n+1)
+      background none
+    td.icon
+      text-align center
+      width 100px
+      [class^="fa icon-"]
+        font-size 1.5em
+        text-shadow 1px 1px 2px rgba(0,0,0,.5)
+      .icon-note:before
+        content "\f05a"
+        color #19407c
+      .icon-tip:before
+        content "\f0eb"
+        text-shadow 1px 1px 2px rgba(155,155,0,.8)
+        color:#111
+      .icon-warning:before
+        content "\f071"
+        color #bf6900
+      .icon-caution:before
+        content "\f06d"
+        color #bf3400
+      .icon-important:before
+        content "\f06a"
+        color #bf0000
+    td.content
+      padding-left 0.5em
+      padding-right 0.5em
+      border-left 1px solid #ddddd8
+      color rgba(0,0,0,.6)
+      font-size 0.8em
+
+.skip
+  display none
+  visibility hidden
+
+{$skip-classes}
+  display none
+  visibility hidden

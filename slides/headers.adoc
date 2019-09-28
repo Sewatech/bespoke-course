@@ -1,0 +1,16 @@
+Alexis Hassler <https://alexis-hassler.com>
+1970-01-01
+:copyright: Sewatech
+:twitter: @AlexisHassler
+:lang: fr
+:imagesdir: images
+:icons: font
+:iconfont-remote!:
+:stylesdir: fonts
+:source-language: nohighlight
+:noheader:
+// Custom variables
+:title: {doctitle}
+:forbidden: {nbsp} icon:ban[role="red"]
+:nbsp_x4: {nbsp} {nbsp}
+:nbsp_x16: {nbsp_x4}{nbsp_x4}{nbsp_x4}{nbsp_x4}

@@ -1,0 +1,39 @@
+section
+  display grid
+  grid-template-columns auto
+  grid-template-rows min-content repeat(10,min-content)
+  grid-template-areas "title"
+  align-items start;
+  grid-gap 0 2rem
+  &.col-2
+    grid-template-columns repeat(2, calc(50% - 1rem))
+    grid-template-areas "title title" "c1 c2" "xxx xxx"
+  &.col-3
+    grid-template-columns repeat(3, calc(33% - 0.7rem))
+    grid-template-areas "title title title" "c1 c2 c3" "span span span"
+  &.col-1-2
+    grid-template-columns repeat(2, calc(50% - 1rem))
+    grid-template-areas "title title" "xxx xxx" "c1 c2"
+  .center
+    justify-self center
+    width 100%
+  .end
+    justify-self end
+  h2
+    grid-area title
+    align-self end
+    padding 1rem 1rem
+  .span
+    grid-area xxx
+  &.title
+    grid-template-areas "title"
+    grid-template-rows 20rem
+    h1
+      grid-area title
+      padding 0
+      align-self end
+    h2
+      padding 0
+      align-self center
+  &.title.chapter
+    grid-template-rows 20rem repeat(100, auto)
