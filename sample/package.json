@@ -1,0 +1,15 @@
+{
+  "name": "do-asadmin",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp serve",
+    "print": "print-slides --bc_course=$npm_package_name"
+  },
+  "dependencies": {
+    "@sewatech/bespoke-course": "^0.1.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

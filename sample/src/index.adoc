@@ -1,0 +1,6 @@
+= Sample Slidedeck
+include::{template_dir}/headers.adoc[]
+
+include::{template_dir}/start.adoc[]
+
+include::{template_dir}/end.adoc[]

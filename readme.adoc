@@ -1,0 +1,286 @@
+= Bespoke for Course template
+:uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
+:uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke/
+:bespoke-course-version: 0.1.8
+
+
+== Overview
+
+The goal of the *bespoke-course* project is to enable the writing of course slidedecks based on {uri-bespoke}[Bespoke.js] and the {uri-asciidoctor-bespoke}[Asciidoctor converter for Bespoke.js].
+
+== Prerequisites
+
+In order to use bespoke-course, you must satisfy the same prerequisites as {uri-asciidoctor-bespoke}#prerequisites[asciidoctor-bespoke].
+
+. NodeJS +
+tested with v9 et v10
+
+ $ npm install
+
+. Ruby et Bundler (testé avec Ruby 2.5)
+
+ bundle install
+
+It is not mandatory to install Gulp globally, as the `npm run-script` command uses a local installation of Gulp.
+
+== Setup 
+
+=== All by hand
+
+Create a directory, add a *package.json* file and define the JavaScript dependendies:
+
+[source,json,subs="verbatim,quotes,attributes"]
+----
+{
+  "name": "do-asadmin",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp serve",
+    "print": "print-slides --bc_course=$npm_package_name"
+  },
+  "dependencies": {
+    "@sewatech/bespoke-course": "^{bespoke-course-version}"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
+----
+
+Download the dependencies:
+
+ $ npm install
+
+Add a *Gemfile* file and define the Ruby dependencies:
+
+[source,subs="verbatim,quotes"]
+----
+source 'https://rubygems.org'
+
+gem 'asciidoctor', '~> 1.5', '>= 1.5.6.2'
+gem 'asciidoctor-bespoke', github: 'sewatech/asciidoctor-bespoke'
+----
+
+Download the dependencies:
+
+ $ bundle install
+
+Add a *gulpfile.js* file:
+
+[source,javascript,subs="verbatim,quotes"]
+----
+'use strict';
+require('@sewatech/bespoke-course/gulpfile.js');
+----
+
+Create the main source file *src/index.adoc*:
+
+[source,asciidoc,subs="verbatim,quotes"]
+----
+= Sample Slidedeck
+\include::{template_dir}/headers.adoc[]
+
+\include::{template_dir}/start.adoc[]
+
+\include::{template_dir}/end.adoc[]
+----
+
+Build the slidedeck:
+
+ $ npm run build
+
+Or run it in a local server:
+
+ $ npm start
+
+=== From example
+
+The node module provides a sample project in its sample/ directory.
+
+Initialize the JavaScrip project, and add the dependency:
+
+ $ npm init -y
+ $ npm install @sewatech/bespoke-course
+ $ cp -r node_modules/@sewatech/bespoke-course/sample/* ./
+
+Download the dependencies (JS and Ruby):
+
+ $ npm install
+ $ bundle install
+
+Build the slidedeck:
+
+ $ npm run build
+
+Or run it in a local server:
+
+ $ npm start
+
+=== Yeoman
+
+-TBD-
+
+== Creating Slides
+
+=== One file per chapter
+
+Create a new src/chapter1.adoc file with a second level title, and 2 styles: title and chapter.
+
+[source,asciidoc,subs=""]
+----
+[.title.chapter]
+== Chapter 1
+
+* Subject 1
+* Subject 2
+
+[.cue]
+****
+This chapter is the first one.
+****
+----
+
+Include the file in the index.adoc:
+
+[source,asciidoc,subs="verbatim,quotes"]
+----
+= Sample Slidedeck
+\include::{template_dir}/headers.adoc[]
+
+\include::{template_dir}/start.adoc[]
+
+//========================
+\include::chapter1.adoc[]
+//========================
+
+\include::{template_dir}/end.adoc[]
+----
+
+=== Content slides
+
+The other slides are regular https://github.com/asciidoctor/asciidoctor-bespoke#content-slides[asciidoc content slides], with https://github.com/asciidoctor/asciidoctor-bespoke/blob/master/README.adoc#speaker-notes[speaker notes].
+
+[source,asciidoc,subs=""]
+----
+== Slide 1.1
+
+* Bla Bla
+
+[.cue]
+****
+Notes for the first slide
+****
+
+== Slide 1.2
+
+* Bla Bla Bla
+
+[.cue]
+****
+Notes for the second slide
+****
+----
+
+To show the speaker notes on the screen, just hover the title of the slide.
+
+=== Formatting
+
+The template provides some CSS classes.
+
+* Margin and padding
+** margin-top-1, margin-top-2,... (up to 20)
+** margin-bottom-N, margin-left-N, margin-right-N
+** padding-top-1, margin-top-2,...
+** margin-bottom-N, margin-left-N, margin-right-N
+
+* Absolute position
+** top-1, top-2,... (up to 20)
+** bottom-N, left-N, right-N
+
+* Alignment
+** center
+
+* Width
+** width-100, width-95, width-90,..., width-5
+** 5 by 5, in %
+
+* Text
+** small, big
+** line-through, underline
+** Maximum 3 levels of bullet points
+
+=== Grid
+
+CSS styles for grids:
+
+* Unable grid
+** grid
+
+* Columns
+** col-2, col-3, col-4
+** col-2-third
+
+* Gap between columns and rows
+** low-gap, no-gap
+
+=== Image
+
+The best unit for setting the size of images is *rem*.
+
+* It is proportional, so it fits well with resizing.
+* It's better than % when we change the ratio.
+* It's supported in the PDF export.
+
+If the unit is rem, then we can set either the width or the height.
+
+[source,asciidoc,subs=""]
+----
+image:general/java-editions.png["Java Editions", , 20rem]
+----
+
+CSS styles for images:
+
+* full-screen, background, foreground
+
+=== Special content
+
+* UML
+** uml
+
+[source,asciidoc,subs=""]
+----
+[.uml]
+* fr.sewatech.course.SomeClass
+** echo(input: String) : String
+** isValid() : boolean
+----
+
+* Not
+** not
+
+[source,asciidoc,subs=""]
+----
+[.not]
+--
+* This is no more relevant
+--
+----
+
+* Hand-on
+** On slide: hands-on
+** In notes: hands-on
+
+== Configurable slidedeck
+
+Configurable settings
+
+* Ratio
+* Server Port
+* Skipped classes
+
+// skip, config
+
+== Export to PDF
+
+-TBD-
