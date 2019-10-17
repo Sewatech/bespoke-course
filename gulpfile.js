@@ -43,7 +43,7 @@ gulp.task('js', ['clean:js'], function() {
 });
 
 gulp.task('html', ['clean:html'], function() {
-  const skip = argv.skip || process.env.npm_package_config_skip;
+  const skip = argv.bc_skip || process.env.npm_package_config_skip;
   debug('Skip config:', skip);
   var skip_attributes;
   if (skip !== undefined) {
@@ -76,7 +76,7 @@ gulp.task('css', ['clean:css'], function() {
   }
 
   var attributes;
-  const skip = argv.skip || process.env.npm_package_config_skip;
+  const skip = argv.bc_skip || process.env.npm_package_config_skip;
   debug('Skip (raw):', skip);
   if (skip !== undefined) {
     const skip_classes = skip.split(',')
@@ -85,7 +85,7 @@ gulp.task('css', ['clean:css'], function() {
     attributes =  { '$skip-classes': skip_classes };
   }
 
-  const ratio = argv.ratio || process.env.npm_package_config_ratio;
+  const ratio = argv.bc_ratio || process.env.npm_package_config_ratio;
   debug('Ratio (raw): ', ratio);
   if (ratio !== undefined) {
     const dimension = common.extract_ratio(ratio);
@@ -180,7 +180,7 @@ gulp.task('default', ['build']);
 
 
 function debug(...args) {
-  if (argv.debug) {
+  if (argv.bc_debug) {
     log('[DEBUG]', ...args);
   }
 }

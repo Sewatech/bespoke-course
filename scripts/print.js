@@ -3,7 +3,7 @@ const argv = require('yargs').argv,
       puppeteer = require('puppeteer');
 
 (async() => {
-    const course_id = argv.course || 'course'
+    const course_id = argv.bc_course || 'course'
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(`file://${process.cwd()}/public/index.html`);
