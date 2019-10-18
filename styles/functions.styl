@@ -1,0 +1,34 @@
+/* Margin and padding */
+set-margin(class, position max) 
+  for index in (0..max) 
+    {class}\.margin-{position}-{index} 
+      margin-{position} 2.5rem * index
+
+set-padding(position, max) 
+  for index in (0..max) 
+    \.padding-{position}-{index} 
+      padding-{position} 2.5rem * index
+
+set-position(position, max) 
+  for index in (0..max) 
+    .{position}-{index} 
+      position absolute
+      {position} 2.5rem * index
+
+set-width(parent) 
+  for index in (0..20) 
+    {parent}\.width-{index*5} 
+      width 5% * index
+      margin-left: auto;
+      margin-right: auto;
+
+/* Font size */
+set-font-size(selector, font-size) 
+  {selector}
+    font-size font-size
+    &.big
+      font-size ($font-multiplier) * font-size
+    &.small
+      font-size (1 / $font-multiplier) * font-size
+    &.very-small
+      font-size (1 / $font-multiplier / $font-multiplier) * font-size

@@ -3,15 +3,15 @@ body
   vertical-align top
 
 h2
-  font-size 4rem
   font-weight bold
-  padding  0 0 2rem 0
+  padding 1rem 1rem
   margin  0 0 0.6rem 0
   border-bottom 0.3rem solid #888
-  background-image url(../images/logo/sewatech-lite.png)
+  background-image url(../images/logo/sewatech-lite.svg)
   background-position 95%  
   background-repeat no-repeat
   background-size auto 80%
+  align-self end
 
 /* Bullet points */
 ul
@@ -27,40 +27,33 @@ ul
     li
       margin 0.6rem 0 0 0 
       list-style-type decimal
-      font-size 2.5rem
   ul 
     li
       margin 0.6rem 0 0 0 
       list-style-type circle
-      font-size 2.5rem
       ul 
         li
           margin 0.3rem 0 0 0.6rem
           list-style-type: square
-          font-size: 2.2rem
   &.level2 
     margin 0.6rem 0.5px 0.6rem 2.5rem
     li
       margin 0.6rem 0 0 0 
       list-style-type circle
-      font-size 2.5rem
     ul
       li
         margin 0.3rem 0 0 0.6rem
         list-style-type square
-        font-size 2.2rem
 
 a
   color #2e2e2e
 
 code
-  font-size 1.1em
   color #707070
 
 pre.source  
   margin 0.5rem 1rem
   border 0.1rem solid #888  
-  font-size 1.6rem
   background-color #fff6d1
   code
     padding 0.1rem 0.2rem
@@ -69,13 +62,6 @@ pre.source
     display: block;
     overflow-x: auto;
     color: #000;
-    font-size 1.6rem
-  &.small
-    code
-      font-size 1.35rem
-  &.big
-    code
-      font-size 1.8rem
   &.blue
     background-color: #ccffff
     code
@@ -93,26 +79,31 @@ pre.source
     width: fit-content
     padding-right: 2rem
 
-blockquote
+.quote
   margin 3rem 5rem
-  font-size 3rem
-  font-style italic
-  p
-    font-family "Noto Serif"
-    letter-spacing 0.2rem
-    // text-align justify
-    &::before
-      content: "\201c\00a0";
-      font-weight: bold;
-      color: #7a2717;
-    &::after
-      content "\00a0\201d";
-      font-weight: bold;
-      color: #7a2717;
-  cite
-    font-size 0.8rem
-    font-style normal
-    color #bbb
+  blockquote
+    font-style italic
+    margin 0
+    p
+      font-family "Noto Serif"
+      letter-spacing 0.2rem
+      line-height: 1.45;
+      font-style: italic;
+        // text-align justify
+      &::before
+        content: "\201c\00a0";
+        font-weight: bold;
+        color: #7a2717;
+      &::after
+        content "\00a0\201d";
+        font-weight: bold;
+        color: #7a2717;  
+  figcaption
+    margin-left 2rem
+    cite
+      color #666
+      &::before
+        content: " - "
 
 section
   &:after
@@ -122,7 +113,6 @@ section
     bottom 0.6rem
     right 0.6rem
     padding-right 1.5rem
-    font-size 1.3rem
     display flex
     align-items flex-end
     justify-content flex-end
@@ -131,7 +121,6 @@ section
     position absolute
     bottom 0.6rem
     left 0.6rem
-    font-size 1rem
   &.center *
     text-align center
     margin-left auto
@@ -140,13 +129,16 @@ section
     text-align left
     margin-left 0
     margin-right 0
+  &.center aside[role=notes] 
+    text-align unset
+    *
+      text-align unset
+
   .center
     text-align center
     margin-left auto
     margin-right auto
 
-.small
-  font-size 80%
 .line-through
   text-decoration line-through
 .underline
@@ -162,7 +154,7 @@ h2:hover ~ aside[role=notes]
     top 0
     left 0
     z-index 100
-    font-size 40%
+    font-size 0.4em
     margin-top 8rem
     padding 10%
     padding-top 2rem

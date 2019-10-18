@@ -1,25 +1,4 @@
-/* Margin and padding */
-set-margin(class position max) 
-  for index in (0..max) 
-    {class}\.margin-{position}-{index} 
-      margin-{position} 2.5rem * index
-set-padding(position max) 
-  for index in (0..max) 
-    \.padding-{position}-{index} 
-      padding-{position} 2.5rem * index
-set-position(position max) 
-  for index in (0..max) 
-    .{position}-{index} 
-      position absolute
-      {position} 2.5rem * index
-set-width(parent) 
-  for index in (0..20) 
-    {parent}\.width-{index*5} 
-      width 5% * index
-      margin-left: auto;
-      margin-right: auto;
-
-// Declare begore the margin
+// Must be declared before margin
 set-width('') 
 set-width('pre.source') 
 
@@ -38,6 +17,9 @@ set-margin('.uml',bottom, 20)
 set-margin('pre.source',bottom, 20) 
 set-margin('.level2',bottom, 20) 
 
+set-padding(top, 5)
+set-padding(right, 5)
+set-padding(bottom, 5)
 set-padding(left, 5)
 .padding-left-0
   ul
@@ -47,26 +29,6 @@ set-position(top, 20)
 set-position(right, 20) 
 set-position(left, 20) 
 set-position(bottom, 20) 
-
-.grid
-  display: grid;
-  column-gap: 5%
-  row-gap: 20%
-  align-items: start
-  &.no-gap
-    column-gap 0
-    row-gap 0
-  &.low-gap
-    column-gap: 1%
-    row-gap: 5%
-  &.col-2
-    grid-template-columns repeat(2, 1fr)
-  &.col-3
-    grid-template-columns repeat(3, 1fr)
-  &.col-4
-    grid-template-columns repeat(4, 1fr)
-  &.col-2-third
-    grid-template-columns 2fr 1fr
 
 .align-top
   align-items flex-start
@@ -91,18 +53,3 @@ set-position(bottom, 20)
 .foreground
   position absolute
   z-index 1
-
-/* x2 pour assurer la compatibilité avec l'ancienne technique (en em) */
-.right
-  &-0
-    position absolute
-    right 0
-  &-1
-    position absolute
-    right 3rem
-  &-2
-    position absolute
-    right 6rem
-  &-3
-    position absolute
-    right 9rem

@@ -26,7 +26,6 @@ article
   overflow hidden
   background-color #ccc
   font-family "Roboto", sans-serif
-  font-size 3em
   color $color-text
   font-feature-settings "kern" 1
   text-rendering optimizeLegibility
@@ -69,20 +68,20 @@ section
   
 @media (max-aspect-ratio: $screen-ratio-width / $screen-ratio-height )
   html
-    font-size 1.8vw * (1 / $screen-ratio)
+    font-size unit(1.8 / $screen-ratio, vw)
 
   section
     width 100vw
-    height 100vw * (1 / $screen-ratio)
-    margin-left -(@width / 2)
-    margin-top -(@height / 2)
+    height unit(100 / $screen-ratio, vw)
+    margin-left - (@width / 2)
+    margin-top - (@height / 2)
 
 @media (min-aspect-ratio: $screen-ratio-width / $screen-ratio-height )
   html
     font-size 1.8vh
 
   section
-    width 100vh * ($screen-ratio)
+    width 100vh * $screen-ratio
     height 100vh
-    margin-left -(@width / 2)
-    margin-top -(@height / 2)
+    margin-left - (@width / 2)
+    margin-top - (@height / 2)

@@ -1,6 +1,6 @@
 {
   "name": "@sewatech/bespoke-course",
-  "version": "0.1.9",
+  "version": "0.2.1",
   "bin": {
     "print-slides": "./scripts/print.js"
   },

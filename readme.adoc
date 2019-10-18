@@ -96,13 +96,13 @@ Or run it in a local server:
 
 === From example
 
-The node module provides a sample project in its sample/ directory.
+The node module provides an empty project in its template/ directory.
 
 Initialize the JavaScrip project, and add the dependency:
 
  $ npm init -y
  $ npm install @sewatech/bespoke-course
- $ cp -r node_modules/@sewatech/bespoke-course/sample/* ./
+ $ cp -r node_modules/@sewatech/bespoke-course/template/* ./
 
 Download the dependencies (JS and Ruby):
 
@@ -215,6 +215,7 @@ The template provides some CSS classes.
 CSS styles for grids:
 
 * Unable grid
+** by default, A slide is a grid, with 1 column
 ** grid
 
 * Columns
@@ -224,9 +225,10 @@ CSS styles for grids:
 * Gap between columns and rows
 ** low-gap, no-gap
 
+
 === Image
 
-The best unit for setting the size of images is *rem*.
+The best unit for the size of images is *rem*.
 
 * It is proportional, so it fits well with resizing.
 * It's better than % when we change the ratio.
@@ -270,6 +272,8 @@ CSS styles for images:
 * Hand-on
 ** On slide: hands-on
 ** In notes: hands-on
+
+=== Table of content
 
 == Configurable slidedeck
 

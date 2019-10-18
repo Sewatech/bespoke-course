@@ -1,5 +1,5 @@
 {
-  "name": "do-asadmin",
+  "name": "empty",
   "version": "1.0.0",
   "scripts": {
     "build": "gulp build",

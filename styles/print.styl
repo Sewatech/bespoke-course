@@ -26,6 +26,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
     height $slide-height-mm
     background none
     padding-top 0.5rem
+    border solid 2px black
 
   .bespoke-parent, .bespoke-slide
     margin unset
@@ -65,7 +66,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
 
     aside[role=notes]
       display block
-      // border solid 1px black
+      border solid 2px black
       padding 0.5rem 2rem 1rem 2rem
       position absolute
       top ($slide-height-mm + $middle-margin-mm)
@@ -102,7 +103,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
   .bespoke-bullet-inactive
     visibility visible
 
-  .title
+  section.title
     background-color #efefef
     color black
 
@@ -131,6 +132,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
       visibility visible
       height unit($page-height-mm - 2*$border-margin-mm, 'mm')
       color #000000
+      border none
 
       h2
         font-size 2rem

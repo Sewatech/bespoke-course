@@ -27,7 +27,7 @@ Un plan plus détaillé est fourni en fin de support.
 * Développeur
 * Formateur
 * Indépendant +
-image:logo/sewatech.png[sewatech, 20rem]
+image:logo/sewatech.svg[sewatech, 20rem]
 
 //^
 
@@ -35,7 +35,7 @@ image:logo/sewatech.png[sewatech, 20rem]
 image:logo/lyonjug.png[Lyon JUG, 20rem]
 
 * Ex-préparateur *&#9749;* +   
-image:logo/mixit.png[Mix-IT, 20rem] 
+image:logo/mixit.svg[Mix-IT, 20rem] 
 
 * Orateur
 ** DevoxxFr, SunnyTech, SnowCamp,...
