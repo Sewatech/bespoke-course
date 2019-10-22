@@ -1,18 +1,33 @@
-// Real size
-$margin-mm = 25mm
-$page-width-mm = 210mm
-$page-height-mm = 297mm
+// A4
+$page-width-mm = 210mm unless $page-width-mm is defined
+$page-height-mm = 297mm unless $page-height-mm is defined
 
-// Printer size
-$border-margin-mm = $margin-mm
-$middle-margin-mm = 12mm
+// Borders
+$border-margin-mm = 20mm unless $border-margin-mm is defined
+$middle-margin-mm = 10mm unless $middle-margin-mm is defined
+$top-margin-mm = $border-margin-mm unless $top-margin-mm is defined
+$bottom-margin-mm = $border-margin-mm unless $bottom-margin-mm is defined
 
+// Local variables
 $slide-width-mm = $page-width-mm - 2*$border-margin-mm
-$slide-height-mm = $slide-width-mm * $screen-ratio-height / $screen-ratio-width
-
-$notes-height-mm = $page-height-mm - $slide-height-mm - 2*$border-margin-mm - $middle-margin-mm
+$slide-height-mm = ($screen-ratio-height / $screen-ratio-width) * $slide-width-mm
 $slide-bottom-margin-mm = $page-height-mm - $slide-height-mm - $border-margin-mm
-$slide-top-margin-mm = $border-margin-mm - 5
+$notes-height-mm = $page-height-mm - $slide-height-mm - $top-margin-mm - $middle-margin-mm - $bottom-margin-mm
+
+@media print
+  .bespoke-parent, .bespoke-slide
+    margin unset
+    position relative
+    overflow visible
+    top unset
+    right unset
+    bottom unset
+    left unset
+    z-index -10
+
+  .bespoke-bullet-inactive
+    opacity unset
+    visibility visible
 
 @media print and (orientation:portrait)
   @page
@@ -26,17 +41,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
     height $slide-height-mm
     background none
     padding-top 0.5rem
-    border solid 2px black
-
-  .bespoke-parent, .bespoke-slide
-    margin unset
-    position relative
-    overflow visible
-    top unset
-    right unset
-    bottom unset
-    left unset
-    z-index -10
+    border $print-border
 
   .bespoke-parent
     background none
@@ -45,16 +50,9 @@ $slide-top-margin-mm = $border-margin-mm - 5
   .bespoke-slide
     opacity 1
     background none
-    // border solid 1px black
-    margin $slide-top-margin-mm auto $slide-bottom-margin-mm auto  // Bottom margin is useful for "Emulate CSS Media : print" on Chrome
+    margin $top-margin-mm auto $slide-bottom-margin-mm auto  // Bottom margin is useful for "Emulate CSS Media : print" on Chrome
     page-break-after always
 
-    h2
-      background-image unset
-      border-bottom unset
-      font-size 3.5rem              // Make place for a larger logo (inserted with pdftk)
-      padding 1rem 15rem 4rem 1rem  // 
-      
     pre.source
       border solid 1px grey 
       code
@@ -66,7 +64,7 @@ $slide-top-margin-mm = $border-margin-mm - 5
 
     aside[role=notes]
       display block
-      border solid 2px black
+      border $print-border
       padding 0.5rem 2rem 1rem 2rem
       position absolute
       top ($slide-height-mm + $middle-margin-mm)
@@ -99,9 +97,6 @@ $slide-top-margin-mm = $border-margin-mm - 5
       table
         p
           margin 0
-
-  .bespoke-bullet-inactive
-    visibility visible
 
   section.title
     background-color #efefef
@@ -167,31 +162,8 @@ $slide-top-margin-mm = $border-margin-mm - 5
             margin-left 1rem
 
 @media print and (orientation:landscape)
-  html
-    background-color yellow
-
-  .bespoke-parent, .bespoke-scale-parent, .bespoke-slide
-    margin unset
-    position relative
-    top unset
-    right unset
-    bottom unset
-    left unset
-    z-index -10
-
-  .bespoke-parent
-    overflow visible
-
-  .bespoke-scale-parent
-    transform unset !important
-
   .bespoke-slide
     opacity unset
-    zoom unset !important
-
-  .bespoke-bullet-inactive
-    opacity unset
-    visibility visible
 
   ul:first-of-type
     padding-top 0.01rem // workaround to have the right li margin on landscape pdf

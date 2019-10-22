@@ -1,0 +1,12 @@
+if $legacy
+  // Pour compatibilité avec l'ancien format Sewatech
+  @media print and (orientation:portrait)
+    section 
+      h2
+        background-image unset
+        border-bottom unset
+        // Plus de place pour le logo via pdftk
+        padding-right 15rem
+        margin 1.0rem 0 2.0rem 0 
+        // ... mais moins de place pour le titre
+        font-size 3.5rem
