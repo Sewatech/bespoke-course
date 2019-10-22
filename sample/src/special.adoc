@@ -1,0 +1,324 @@
+// tag::title[]
+[.title.chapter]
+== Special Content
+
+[.col-2]
+* Blockquote
+* Admonition
+* UML
+* Not
+* Source code
+* Table
+// end::title[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=title]
+....
+****
+
+
+//=========================================================
+// tag::quote[]
+[.col-2]
+== Quote
+
+[quote, Author, Source of the quote]
+____
+Regular quote
+____
+
+[quote.big, Author]
+____
+Big quote
+____
+
+[quote.small, Author]
+____
+Small quote
+____
+
+[quote.very-small, Author]
+____
+Very small quote
+____
+// end::quote[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=quote]
+....
+****
+
+
+//=========================================================
+// tag::admonition1[]
+[]
+== Admonition
+
+[NOTE]
+====
+Admonition block: NOTE
+====
+
+TIP: Admonition block: TIP
+
+IMPORTANT: Admonition block: IMPORTANT
+
+WARNING: Admonition block: WARNING
+
+CAUTION: Admonition block: CAUTION
+// end::admonition1[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=admonition1]
+....
+****
+
+
+//=========================================================
+// tag::admonition2[]
+[]
+== Admonition
+
+[NOTE]
+====
+Regular NOTE
+====
+
+[NOTE.big]
+====
+Big NOTE
+====
+
+[NOTE.small]
+====
+Small NOTE
+====
+
+[NOTE.very-small]
+====
+Very small NOTE
+====
+// end::admonition2[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=admonition2]
+....
+****
+
+
+//=========================================================
+// tag::uml1[]
+[.center]
+== UML
+
+[.uml.margin-top-3]
+* fr.sewatech.course.SomeClass
+** echo(input: String) : String
+** isValid() : boolean
+// end::uml1[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=uml1]
+....
+****
+
+
+//=========================================================
+// tag::uml2[]
+[.col-2.gap-0]
+== UML
+
+[.uml.big.center]
+* Big
+** echo(...) : String
+** isValid() : boolean
+
+[.uml.center]
+* Regular
+** echo(input: String) : String
+** isValid() : boolean
+
+[.uml.small.center]
+* Small
+** echo(input: String) : String
+** isValid() : boolean
+
+[.uml.very-small.center]
+* VerySmall
+** echo(input: String) : String
+** isValid() : boolean
+// end::uml2[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=uml2]
+....
+****
+
+
+//=========================================================
+// tag::not[]
+[.center]
+== Not
+
+[.not.margin-top-3.width-40]
+* This text is
+* not relevant
+* anymore
+// end::not[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=not]
+....
+****
+
+
+//=========================================================
+// tag::hands-on[]
+[.hands-on]
+== Hands-on
+
+* This is a hands-on slide
+** Our friend Bob appears on the bottom right
+** The explanations appear in the speaker notes
+// end::hands-on[]
+
+[.cue]
+****
+// tag::hands-on-cue[]
+Here are the notes of the hands-on slide.
+
+[.hands-on]
+--
+Here are the explanations of the lab.
+--
+// end::hands-on-cue[]
+
+[source]
+....
+include::special.adoc[tag=hands-on]
+
+[.cue]
+ ****
+include::special.adoc[tag=hands-on-cue]
+ ****
+....
+****
+
+
+//=========================================================
+// tag::source[]
+[]
+== Source code
+
+[source.big.width-60, subs="verbatim,quotes"]
+----
+public class BigSourceCode {
+    public void blabla() {
+        return;
+    }
+}
+----
+
+[source.width-60, subs="verbatim,quotes"]
+----
+public class MediumSourceCode {
+    public void blabla() {
+        return;
+    }
+}
+----
+
+[source.small.width-60, subs="verbatim,quotes"]
+----
+public class SmallSourceCode {
+    public void blabla() {
+        return;
+    }
+}
+----
+
+[source.very-small.width-60, subs="verbatim,quotes"]
+----
+public class VerySmallSourceCode {
+    public void blabla() {
+        return;
+    }
+}
+----
+// end::source[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=source]
+....
+****
+
+
+//=========================================================
+// tag::table[]
+[.col-2]
+== Table
+
+[.big]
+.Big
+|=== 
+| Column 1, row 1 | Column 2, row 1  
+| Column 1, row 2 | Column 2, row 2
+| Column 1, row 3 | Column 2, row 3
+|=== 
+
+[]
+.Medium
+|=== 
+| Column 1, row 1 | Column 2, row 1  
+| Column 1, row 2 | Column 2, row 2
+| Column 1, row 3 | Column 2, row 3
+|=== 
+
+[.small]
+.Small
+|=== 
+| Column 1, row 1 | Column 2, row 1  
+| Column 1, row 2 | Column 2, row 2
+| Column 1, row 3 | Column 2, row 3
+|=== 
+
+[.very-small]
+.Very Small
+|=== 
+| Column 1, row 1 | Column 2, row 1  
+| Column 1, row 2 | Column 2, row 2
+| Column 1, row 3 | Column 2, row 3
+|=== 
+// end::table[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=table]
+....
+****

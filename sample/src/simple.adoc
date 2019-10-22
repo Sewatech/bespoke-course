@@ -1,0 +1,259 @@
+[.title.chapter]
+== Simple layout
+
+[.cue]
+****
+****
+
+
+//=========================================================
+// tag::bullet[]
+[]
+== Bullet points
+
+* First level
+** Second level
+*** Third level
+
+//
+
+[.level2]
+** Second level
+*** Third level
+// end::bullet[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=bullet]
+....
+****
+
+
+//=========================================================
+// tag::margin1[]
+[]
+== Margin & padding
+
+* No margin
+
+[.margin-top-1]
+* Margin top: 1 level
+
+[.margin-top-2]
+* Margin top: 2 levels
+
+[.margin-top-3]
+* Margin top: 3 levels
+// end::margin1[]
+
+[.cue]
+****
+[source]
+----
+include::simple.adoc[tag=margin1]
+----
+****
+
+
+//=========================================================
+// tag::margin2[]
+[]
+== Margin & padding
+
+[source]
+----
+No margin
+----
+
+[source.margin-top-1]
+----
+Margin top: 1 level
+----
+
+[source.margin-bottom-2]
+----
+Margin bottom: 2 levels
+----
+
+[source]
+----
+No margin
+----
+
+[source.margin-left-3.margin-right-5]
+----
+Margin left: 3 levels
+Margin right: 5 levels
+----
+// end::margin2[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=margin2]
+....
+****
+
+
+//=========================================================
+// tag::padding[]
+[]
+== Margin & padding
+
+[source]
+----
+No padding
+----
+
+[source.padding-top-1]
+----
+Padding top: 1 level
+----
+
+[source.padding-left-2]
+----
+Padding left: 2 levels
+----
+
+[source.padding-bottom-3]
+----
+Padding bottom: 3 levels
+----
+
+[source.padding-right-5]
+----
+Padding right: 5 levels
+----
+// end::padding[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=padding]
+....
+****
+
+
+//=========================================================
+// tag::width1[]
+[]
+== Width
+
+[source]
+----
+Default width
+----
+
+[source.fit-content.margin-bottom-2]
+----
+Width fits content
+----
+
+[source.width-100]
+----
+Width 100%
+----
+
+[source.width-95]
+----
+Width 95%
+----
+
+[source.width-90]
+----
+Width 90%
+----
+// end::width1[]
+
+// tag::width2[]
+[source.width-85]
+----
+... (5% by 5%)
+----
+
+[source.width-50]
+----
+Width 50%
+----
+
+[source.width-25]
+----
+Width 25%
+----
+
+[source.width-5]
+----
+. 5%
+----
+// end::width2[]
+
+[.cue]
+****
+
+[.grid.col-2]
+--
+[source.small]
+....
+include::simple.adoc[tag=width1]
+
+...
+....
+
+//
+
+[source.small]
+....
+...
+
+include::simple.adoc[tag=width2]
+....
+--
+****
+
+
+//=========================================================
+// tag::center1[]
+[.center]
+== Centered content
+
+* The whole slide is centered
+
+* This text is centered
+* This text is centered too
+// end::center1[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=center1]
+....
+****
+
+
+//=========================================================
+// tag::center2[]
+[]
+== Centered content
+
+* This text is not centered
+
+[.center]
+* This text is centered
+* This text is centered too
+
+//
+* This text is not centered
+// end::center2[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=center2]
+....
+****

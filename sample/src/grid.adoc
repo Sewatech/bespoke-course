@@ -1,0 +1,84 @@
+[.title.chapter]
+== Grid layout
+
+* Colums
+
+[.cue]
+****
+****
+
+
+//=========================================================
+// tag::col2[]
+[.col-2]
+== Slide with 2 columns
+
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+* Second column
+
+// 
+* After the second column
+// end::col2[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=col2]
+....
+****
+
+
+//=========================================================
+// tag::col3[]
+[.col-3]
+== Slide with 3 columns
+
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+* Second column
+
+// 
+* After the second column
+// end::col3[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=col3]
+....
+****
+
+
+//=========================================================
+// tag::partial[]
+[]
+== Partial grid
+
+* .... .... .... .... .... .... .... Not in the grid .... .... .... .... .... .... .... 
+
+[.grid.col-2]
+--
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+--
+// end::partial[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=partial]
+....
+****

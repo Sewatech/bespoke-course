@@ -1,0 +1,9 @@
+= Bespoke for Course template
+
+== Node Module
+
+See link:module/README.adoc[]
+
+== Sample
+
+See sample/ directory

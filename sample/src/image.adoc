@@ -1,0 +1,69 @@
+[.title.chapter]
+== Images
+
+* Simple
+* Full screen
+
+[.cue]
+****
+****
+
+
+//=========================================================
+// tag::simple[]
+[]
+== Image
+
+[.center.margin-top-1]
+image:logo/sewatech.svg["Sewatech", 30rem]
+
+[.center.margin-top-1]
+image::logo/sewatech.svg["Sewatech", 30rem]
+// end::simple[]
+
+[.cue]
+****
+[source]
+....
+include::image.adoc[tag=simple]
+....
+****
+
+
+//=========================================================
+// tag::inline[]
+[]
+== Image
+
+[.margin-top-1]
+* Inline image : image:logo/sewatech.svg["Sewatech", , 1lh]
+// end::inline[]
+
+[.cue]
+****
+[source]
+....
+include::image.adoc[tag=inline]
+....
+****
+
+
+//=========================================================
+// tag::fullscreen[]
+[]
+== !
+
+[.center.margin-top-6]
+*The image is full screen...*
+
+[.full-screen]
+image:bullets.svg["Sewatech"]
+// end::fullscreen[]
+
+[.cue]
+****
+[source]
+....
+include::image.adoc[tag=fullscreen]
+....
+****
