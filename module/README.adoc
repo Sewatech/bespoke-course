@@ -1,7 +1,7 @@
 = Bespoke for Course template
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
 :uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke/
-:bespoke-course-version: 0.2.2
+:bespoke-course-version: 0.2.3
 
 
 == Overview
