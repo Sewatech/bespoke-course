@@ -1,6 +1,11 @@
 {
   "name": "@sewatech/bespoke-course",
-  "version": "0.2.7",
+  "version": "0.3.0",
+  "homepage": "https://github.com/Sewatech/bespoke-course/tree/master/module",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Sewatech/bespoke-course"
+  },
   "bin": {
     "print-slides": "./scripts/print.js"
   },
@@ -10,6 +15,7 @@
     "bespoke-classes": "^1.0.0",
     "bespoke-nav": "^1.0.2",
     "browserify": "^16.5.0",
+    "cli-color": "^2.0.0",
     "del": "^5.1.0",
     "fancy-log": "^1.3.3",
     "font-awesome": "^4.7.0",
@@ -33,6 +39,6 @@
     "yargs": "^14.2.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "4.x"
   }
 }

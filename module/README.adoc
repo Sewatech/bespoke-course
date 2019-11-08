@@ -1,7 +1,7 @@
 = Bespoke for Course template
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
 :uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke/
-:bespoke-course-version: 0.2.5
+:bespoke-course-version: 0.3.0
 
 
 == Overview
@@ -13,11 +13,12 @@ The goal of the *bespoke-course* project is to enable the writing of course slid
 In order to use bespoke-course, you must satisfy the same prerequisites as {uri-asciidoctor-bespoke}#prerequisites[asciidoctor-bespoke].
 
 . NodeJS +
-tested with v9 et v10
+tested with v9, v10 and v12
 
  $ npm install
 
-. Ruby et Bundler (testé avec Ruby 2.5)
+. Ruby et Bundler +
+tested with Ruby 2.5
 
  bundle install
 
@@ -32,7 +33,7 @@ Create a directory, add a *package.json* file and define the JavaScript dependen
 [source,json,subs="verbatim,quotes,attributes"]
 ----
 {
-  "name": "do-asadmin",
+  "name": "example-course",
   "version": "1.0.0",
   "scripts": {
     "build": "gulp build",
@@ -43,7 +44,7 @@ Create a directory, add a *package.json* file and define the JavaScript dependen
     "@sewatech/bespoke-course": "^{bespoke-course-version}"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "4.x"
   }
 }
 ----

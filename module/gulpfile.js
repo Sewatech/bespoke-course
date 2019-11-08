@@ -27,9 +27,48 @@ const MAX_HTML_FILE_SIZE = 2000; // kbytes
 const module_dir = __dirname;
 const modules_dir = path.dirname(path.dirname(module_dir));
 
+check_version();
 debug('Starting in debug mode');
 
-gulp.task('js', ['clean:js'], function() {
+gulp.task('clean:js', () => {
+  return del('public/build/build.js');
+});
+gulp.task('clean:html', () => {
+  return del('public/index.html');
+});
+gulp.task('clean:css', () => {
+  return del('public/build/build.css');
+});
+gulp.task('clean:fonts', () => {
+  return del('public/fonts');
+});
+gulp.task('clean:images', () => {
+  return del('public/images');
+});
+gulp.task('clean:hljs', () => {
+  return del('public/hljs');
+});
+gulp.task('clean', () => {
+  return del('public');
+});
+
+gulp.task('hljs:js', gulp.series('clean:hljs', () => {
+  return gulp.src(modules_dir + '/highlight.js/lib/**/*.js')
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('public/hljs'))
+    .pipe(connect.reload());
+}));
+gulp.task('hljs:css', gulp.series('clean:hljs', () => {
+  return gulp.src(modules_dir + '/highlight.js/styles/*.css')
+    .pipe(cleanCSS())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('public/hljs/styles'))
+    .pipe(connect.reload());
+}));
+gulp.task('hljs', gulp.series('clean:hljs', 'hljs:js', 'hljs:css'));
+
+gulp.task('js', gulp.series('clean:js', () => {
   // see https://wehavefaces.net/gulp-browserify-the-gulp-y-way-bb359b3f9623
   return browserify(module_dir + '/scripts/main.js').bundle()
     // NOTE this error handler fills the role of plumber() when working with browserify
@@ -40,9 +79,9 @@ gulp.task('js', ['clean:js'], function() {
     .pipe(rename('build.js'))
     .pipe(gulp.dest('public/build'))
     .pipe(connect.reload());
-});
+}));
 
-gulp.task('html', ['clean:html'], function() {
+gulp.task('html', gulp.series('clean:html', () => {
   const skip = argv.bc_skip || process.env.npm_package_config_skip;
   debug('Skip config:', skip);
   var skip_attributes;
@@ -63,9 +102,9 @@ gulp.task('html', ['clean:html'], function() {
     .pipe(chmod(0o644))
     .pipe(gulp.dest('public'))
     .pipe(connect.reload());
-});
+}));
 
-gulp.task('css', ['clean:css'], function() {
+gulp.task('css', gulp.series('clean:css', () => {
   let filename = 'src/styles/main.styl';
   try {
     fs.accessSync(filename)
@@ -101,83 +140,52 @@ gulp.task('css', ['clean:css'], function() {
     .pipe(rename('build.css'))
     .pipe(gulp.dest('public/build'))
     .pipe(connect.reload());
-});
+}));
 
-gulp.task('fonts', ['clean:fonts'], function() {
+gulp.task('fonts', gulp.series('clean:fonts', () => {
   return gulp.src([module_dir + '/src/fonts/**/*',
                     modules_dir + '/font-awesome/fonts/**/*', 
                     modules_dir + '/font-awesome/css/font-awesome.css'
                     ])
     .pipe(gulp.dest('public/fonts'))
     .pipe(connect.reload());
-});
+}));
 
-gulp.task('images', ['clean:images'], function() {
+gulp.task('images', gulp.series('clean:images', () => {
   return gulp.src(['src/images/**/*', module_dir + '/images/**/*'])
     .pipe(gulp.dest('public/images'))
     .pipe(connect.reload());
-});
+}));
 
-gulp.task('hljs', ['clean:hljs', 'hljs:js', 'hljs:css']);
+gulp.task('build', gulp.series('js', 'html', 'css', 'fonts', 'images'));
 
-gulp.task('hljs:js', ['clean:hljs'], function() {
-  return gulp.src(modules_dir + '/highlight.js/lib/**/*.js')
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('public/hljs'))
-    .pipe(connect.reload());
-});
-gulp.task('hljs:css', ['clean:hljs'], function() {
-  return gulp.src(modules_dir + '/highlight.js/styles/*.css')
-    .pipe(cleanCSS())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('public/hljs/styles'))
-    .pipe(connect.reload());
-});
-
-gulp.task('clean', function() {
-  return del('public');
-});
-
-gulp.task('clean:html', function() {
-  return del('public/index.html');
-});
-
-gulp.task('clean:js', function() {
-  return del('public/build/build.js');
-});
-
-gulp.task('clean:css', function() {
-  return del('public/build/build.css');
-});
-
-gulp.task('clean:fonts', function() {
-  return del('public/fonts');
-});
-
-gulp.task('clean:images', function() {
-  return del('public/images');
-});
-
-gulp.task('clean:hljs', function() {
-  return del('public/hljs');
-});
-
-gulp.task('connect', ['build'], function() {
+gulp.task('connect', gulp.series('build', () => {
   connect.server({ root: 'public', port: process.env.npm_package_config_port | 8000, livereload: true });
-});
+}));
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch('src/**/*.adoc', ['html']);
   gulp.watch('src/scripts/**/*.js', ['js']);
   gulp.watch('src/styles/**/*.styl', ['css']);
   gulp.watch('src/images/**/*', ['images','html']);
 });
 
-gulp.task('build', ['js', 'html', 'css', 'fonts', 'images']);
-gulp.task('serve', ['connect', 'watch']);
-gulp.task('default', ['build']);
+gulp.task('serve', gulp.series('connect', 'watch'));
 
+gulp.task('default', gulp.series('build'));
+
+
+function check_version() {
+  var clc = require("cli-color");
+  const version = require('gulp/package.json').version;
+  const major = version.split('.')[0];
+  if (major < 4) {
+    log.error(clc.red(`Gulp version is ${version}, but should be at least 4.x`));
+    process.exit(1);
+  } else if (argv.bc_debug) {
+    log(`Gulp version ${version}`);
+  };
+}
 
 function debug(...args) {
   if (argv.bc_debug) {
