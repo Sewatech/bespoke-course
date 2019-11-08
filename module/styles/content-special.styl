@@ -97,6 +97,36 @@ table
       border-left 1px solid #ddddd8
       color rgba(0,0,0,.6)
 
+.conum[data-value]
+  display inline-block
+  color #fff !important
+  background-color rgba(0,0,0,.8)
+  -webkit-border-radius 100px
+  border-radius 100px
+  text-align center
+  font-size .75em
+  width 1.67em
+  height 1.67em
+  line-height 1.67em
+  font-family "Open Sans","DejaVu Sans",sans-serif
+  font-style normal
+  font-weight bold
+  &::after
+    content attr(data-value)
+  & + b
+    display none
+.colist
+  table
+    border 0
+    background none
+    tbody > tr
+      background none
+  td:not([class]):first-child
+    padding .4em .75em 0
+    line-height 1
+    vertical-align top
+
+
 .skip
   display none
   visibility hidden
