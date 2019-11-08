@@ -147,6 +147,25 @@ section
 h2:hover ~ aside[role=notes]
   display block
 
+aside[role=notes]
+  ul
+    padding-left 2rem
+    li
+      font-size 1.5rem
+      line-height 1.8rem
+      margin 0.3rem 0
+      list-style-type square
+      ul
+        li
+          font-size unset
+  ul.uml
+    padding-left 0
+    li
+      list-style-type none
+  pre.source
+    code
+      font-size 1rem
+
 @media screen
   aside[role=notes]
     background-color #dfdfde
@@ -160,17 +179,6 @@ h2:hover ~ aside[role=notes]
     padding-top 2rem
     height 100%
     width: 100%
-    ul
-      padding-left 2rem
-      li
-        list-style-type square
-        margin 0
-        ul
-          li
-            font-size unset
-    pre.source
-      code
-        font-size 1rem
     table
       font-size 1rem
   .title aside[role=notes]
