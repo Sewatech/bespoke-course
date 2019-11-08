@@ -1,12 +1,12 @@
 /* Margin and padding */
-set-margin(class, position max) 
+set-margin(class, position, max) 
   for index in (0..max) 
     {class}\.margin-{position}-{index} 
       margin-{position} 2.5rem * index
 
-set-padding(position, max) 
+set-padding(class, position, max) 
   for index in (0..max) 
-    \.padding-{position}-{index} 
+    {class}\.padding-{position}-{index} 
       padding-{position} 2.5rem * index
 
 set-position(position, max) 
