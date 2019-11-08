@@ -60,7 +60,7 @@ gulp.task('html', ['clean:html'], function() {
     .pipe(exec(`bundle exec asciidoctor-bespoke -a template_dir=${module_dir}/slides ${skip_attributes} -o - src/index.adoc`, { pipeStdout: true, maxBuffer: MAX_HTML_FILE_SIZE*1024 }))
     .pipe(exec.reporter({ stdout: false }))
     .pipe(rename('index.html'))
-    .pipe(chmod(644))
+    .pipe(chmod(0o644))
     .pipe(gulp.dest('public'))
     .pipe(connect.reload());
 });
@@ -96,7 +96,7 @@ gulp.task('css', ['clean:css'], function() {
   return gulp.src(filename)
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({ 'include css': true, paths: [modules_dir], rawDefine: attributes }))
-    .pipe(autoprefixer({ browsers: ['last 2 versions'], cascade: false }))
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(isDist ? csso() : through())
     .pipe(rename('build.css'))
     .pipe(gulp.dest('public/build'))
