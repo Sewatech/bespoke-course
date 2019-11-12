@@ -164,13 +164,13 @@ gulp.task('connect', gulp.series('build', () => {
 }));
 
 gulp.task('watch', () => {
-  gulp.watch('src/**/*.adoc', ['html']);
-  gulp.watch('src/scripts/**/*.js', ['js']);
-  gulp.watch('src/styles/**/*.styl', ['css']);
-  gulp.watch('src/images/**/*', ['images','html']);
+  gulp.watch('src/**/*.adoc', gulp.series('html'));
+  gulp.watch('src/scripts/**/*.js', gulp.series('js'));
+  gulp.watch('src/styles/**/*.styl', gulp.series('css'));
+  gulp.watch('src/images/**/*', gulp.series('images','html'));
 });
 
-gulp.task('serve', gulp.series('connect', 'watch'));
+gulp.task('serve', gulp.parallel('connect', 'watch'));
 
 gulp.task('default', gulp.series('build'));
 
