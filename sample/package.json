@@ -11,7 +11,7 @@
     "ratio": "4:3"
   },
   "dependencies": {
-    "@sewatech/bespoke-course": "^0.3.0"
+    "@sewatech/bespoke-course": "^0.3.2"
   },
   "devDependencies": {
     "gulp": "4.x"

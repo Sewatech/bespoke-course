@@ -1,7 +1,7 @@
 = Bespoke for Course template
 :uri-bespoke: http://markdalgleish.com/projects/bespoke.js/
 :uri-asciidoctor-bespoke: https://github.com/asciidoctor/asciidoctor-bespoke/
-:bespoke-course-version: 0.3.0
+:bespoke-course-version: 0.3.2
 
 
 == Overview
@@ -224,7 +224,7 @@ CSS styles for grids:
 ** col-2-third
 
 * Gap between columns and rows
-** low-gap, no-gap
+** gap-0, gap-1
 
 
 === Image

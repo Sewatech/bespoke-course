@@ -7,7 +7,7 @@ h2
   padding 1rem 1rem
   margin  0 0 0.6rem 0
   border-bottom 0.3rem solid #888
-  background-image url(../images/logo/sewatech-lite.svg)
+  background-image $header-image
   background-position 95%  
   background-repeat no-repeat
   background-size auto 80%
@@ -173,7 +173,7 @@ aside[role=notes]
     top 0
     left 0
     z-index 100
-    font-size 0.4em
+    font-size 1.5rem
     margin-top 8rem
     padding 10%
     padding-top 2rem
@@ -182,8 +182,10 @@ aside[role=notes]
     table
       font-size 1rem
   .title aside[role=notes]
-    background-color #4d668d
+    background-color $title-color-background
     margin-top 15rem
     text-align left
     li
       line-height 1.5
+    a
+      color $title-color-text
