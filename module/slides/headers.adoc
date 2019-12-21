@@ -1,7 +1,7 @@
-Alexis Hassler <https://alexis-hassler.com>
+John Toto Doe <https://john-toto-doe.com>
 1970-01-01
-:copyright: Sewatech
-:twitter: @AlexisHassler
+:copyright: JTD Inc.
+:twitter: @JohnTotoDoe
 :lang: fr
 :imagesdir: images
 :icons: font

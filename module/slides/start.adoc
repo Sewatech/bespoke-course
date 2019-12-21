@@ -20,26 +20,3 @@ ifdef::title-picture[image::{title-picture}["{title}", {title-picture-width}, {t
 Un plan plus détaillé est fourni en fin de support.
 ****
 
-//=========================================================
-[.grid.col-2.no-gap.no-toc,id=speaker]
-== {author}
-
-* Développeur
-* Formateur
-* Indépendant +
-image:logo/sewatech.svg[sewatech, 20rem]
-
-//^
-
-* Co-fondateur +
-image:logo/lyonjug.png[Lyon JUG, 20rem]
-
-* Ex-préparateur *&#9749;* +   
-image:logo/mixit.svg[Mix-IT, 20rem] 
-
-* Orateur
-** DevoxxFr, SunnyTech, SnowCamp,...
-
-[.cue]
-****
-****

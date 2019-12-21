@@ -1,7 +1,7 @@
 article
   font-size $base-font-size
 
-set-font-size('section', $base-font-size) 
+set-font-size('section', '', $base-font-size) 
 
 h2
   font-size 1.3 * $base-font-size
@@ -19,24 +19,28 @@ ul, ol
   
 code
   font-size 1em
-set-font-size('pre.source  ', $source-font-size) 
+set-font-size('pre.source  ', '', $source-font-size) 
 pre.source code
   font-size 1em
 
-set-font-size('.uml', $uml-font-size) 
-.uml li
-    font-size 90%
+set-font-size('.uml', '', $uml-font-size) 
+set-font-size('.uml li span', '', $uml-font-size * 0.9) 
+set-font-size('.uml', 'li span', $uml-font-size * 0.9) 
+set-font-size('.uml li li span', '', $uml-font-size * 0.8) 
+set-font-size('aside[role="notes"] .uml li span', '', $uml-font-size * $notes-multiplier)
+set-font-size('aside[role="notes"] .uml', 'li span', $uml-font-size * $notes-multiplier)
+set-font-size('aside[role="notes"] .uml li li span', '', $uml-font-size * $notes-multiplier * 0.9)
 
-set-font-size('table', $table-font-size) 
+set-font-size('table', '', $table-font-size) 
 
-set-font-size('.quote', $quote-font-size) 
+set-font-size('.quote', '', $quote-font-size) 
 .quote
   figcaption
     font-size 0.8em
     cite
       letter-spacing: -0.05em;
 
-set-font-size('.admonitionblock', $admonition-font-size) 
+set-font-size('.admonitionblock', '', $admonition-font-size) 
 .admonitionblock
   *
     font-size 1em

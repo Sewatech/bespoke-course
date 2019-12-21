@@ -15,10 +15,10 @@
 == Image
 
 [.center.margin-top-1]
-image:logo/sewatech.svg["Sewatech", 30rem]
+image:logo/bespoke-course.svg["Bespoke Course logo", 30rem]
 
 [.center.margin-top-1]
-image::logo/sewatech.svg["Sewatech", 30rem]
+image::logo/bespoke-course.svg["Bespoke Course logo", 30rem]
 // end::simple[]
 
 [.cue]
@@ -36,7 +36,7 @@ include::image.adoc[tag=simple]
 == Image
 
 [.margin-top-1]
-* Inline image : image:logo/sewatech.svg["Sewatech", , 1lh]
+* Inline image : image:logo/bespoke-course.svg["Bespoke Course logo", , 1lh]
 // end::inline[]
 
 [.cue]
@@ -57,7 +57,7 @@ include::image.adoc[tag=inline]
 *The image is full screen...*
 
 [.full-screen]
-image:bullets.svg["Sewatech"]
+image:bullets.svg["Bullets"]
 // end::fullscreen[]
 
 [.cue]
