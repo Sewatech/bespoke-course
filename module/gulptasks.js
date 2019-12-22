@@ -1,5 +1,5 @@
 'use strict';
-var argv = require('yargs').argv,
+const argv = require('yargs').argv,
   autoprefixer = require('gulp-autoprefixer'),
   browserify = require('browserify'),
   buffer = require('vinyl-buffer'),
@@ -25,50 +25,54 @@ const isDist = process.argv.indexOf('deploy') >= 0;
 
 const MAX_HTML_FILE_SIZE = 2000; // kbytes
 const module_dir = __dirname;
-const modules_dir = path.dirname(path.dirname(module_dir));
+const modules_dir = resolve_modules_dir();
 
 check_version();
 debug('Starting in debug mode');
 
-gulp.task('clean:js', () => {
-  return del('public/build/build.js');
-});
-gulp.task('clean:html', () => {
-  return del('public/index.html');
-});
-gulp.task('clean:css', () => {
-  return del('public/build/build.css');
-});
-gulp.task('clean:fonts', () => {
-  return del('public/fonts');
-});
-gulp.task('clean:images', () => {
-  return del('public/images');
-});
-gulp.task('clean:hljs', () => {
-  return del('public/hljs');
-});
-gulp.task('clean', () => {
-  return del('public');
-});
+// Including private and public tasks
+const tasks = {};
 
-gulp.task('hljs:js', gulp.series('clean:hljs', () => {
+tasks.clean_js = () => {
+  return del('public/build/build.js');
+};
+tasks.clean_html = () => {
+  return del('public/index.html');
+};
+tasks.clean_css = () => {
+  return del('public/build/build.css');
+};
+tasks.clean_fonts = () => {
+  return del('public/fonts');
+};
+tasks.clean_images = () => {
+  return del('public/images');
+};
+tasks.clean_hljs = () => {
+  return del('public/hljs');
+};
+tasks.clean = () => {
+  return del('public');
+};
+
+tasks.hljs_js = gulp.series(tasks.clean_hljs, () => {
   return gulp.src(modules_dir + '/highlight.js/lib/**/*.js')
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/hljs'))
     .pipe(connect.reload());
-}));
-gulp.task('hljs:css', gulp.series('clean:hljs', () => {
+});
+
+tasks.hljs_css = gulp.series(tasks.clean_hljs, () => {
   return gulp.src(modules_dir + '/highlight.js/styles/*.css')
     .pipe(cleanCSS())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/hljs/styles'))
     .pipe(connect.reload());
-}));
-gulp.task('hljs', gulp.series('clean:hljs', 'hljs:js', 'hljs:css'));
+});
+tasks.hljs = gulp.series(tasks.clean_hljs, tasks.hljs_js, tasks.hljs_css);
 
-gulp.task('js', gulp.series('clean:js', () => {
+function js() {
   // see https://wehavefaces.net/gulp-browserify-the-gulp-y-way-bb359b3f9623
   return browserify(module_dir + '/scripts/main.js').bundle()
     // NOTE this error handler fills the role of plumber() when working with browserify
@@ -79,9 +83,10 @@ gulp.task('js', gulp.series('clean:js', () => {
     .pipe(rename('build.js'))
     .pipe(gulp.dest('public/build'))
     .pipe(connect.reload());
-}));
+};
+tasks.js = gulp.series(tasks.clean_js, js);
 
-gulp.task('html', gulp.series('clean:html', () => {
+tasks.html = gulp.series(tasks.clean_html, () => {
   const skip = argv.bc_skip || process.env.npm_package_config_skip;
   debug('Skip config:', skip);
   var skip_attributes;
@@ -102,9 +107,9 @@ gulp.task('html', gulp.series('clean:html', () => {
     .pipe(chmod(0o644))
     .pipe(gulp.dest('public'))
     .pipe(connect.reload());
-}));
+});
 
-gulp.task('css', gulp.series('clean:css', () => {
+tasks.css = gulp.series(tasks.clean_css, () => {
   let filename = 'src/styles/main.styl';
   try {
     fs.accessSync(filename)
@@ -140,40 +145,38 @@ gulp.task('css', gulp.series('clean:css', () => {
     .pipe(rename('build.css'))
     .pipe(gulp.dest('public/build'))
     .pipe(connect.reload());
-}));
+});
 
-gulp.task('fonts', gulp.series('clean:fonts', () => {
+tasks.fonts = gulp.series(tasks.clean_fonts, () => {
   return gulp.src([module_dir + '/src/fonts/**/*',
                     modules_dir + '/font-awesome/fonts/**/*', 
                     modules_dir + '/font-awesome/css/font-awesome.css'
                     ])
     .pipe(gulp.dest('public/fonts'))
     .pipe(connect.reload());
-}));
+});
 
-gulp.task('images', gulp.series('clean:images', () => {
+tasks.images = gulp.series(tasks.clean_images, () => {
   return gulp.src(['src/images/**/*', module_dir + '/images/**/*'])
     .pipe(gulp.dest('public/images'))
     .pipe(connect.reload());
-}));
-
-gulp.task('build', gulp.series('js', 'html', 'css', 'fonts', 'images'));
-
-gulp.task('connect', gulp.series('build', () => {
-  connect.server({ root: 'public', port: process.env.npm_package_config_port | 8000, livereload: true });
-}));
-
-gulp.task('watch', () => {
-  gulp.watch('src/**/*.adoc', gulp.series('html'));
-  gulp.watch('src/scripts/**/*.js', gulp.series('js'));
-  gulp.watch('src/styles/**/*.styl', gulp.series('css'));
-  gulp.watch('src/images/**/*', gulp.series('images','html'));
 });
 
-gulp.task('serve', gulp.parallel('connect', 'watch'));
+tasks.build = gulp.series(tasks.js, tasks.html, tasks.css, tasks.fonts, tasks.images);
 
-gulp.task('default', gulp.series('build'));
+tasks.serve = gulp.series(tasks.build, () => {
+  connect.server({ root: 'public', port: process.env.npm_package_config_port | 8000, livereload: true });
+});
 
+tasks.watch = () => {
+  gulp.watch('src/**/*.adoc', tasks.html);
+  gulp.watch('src/scripts/**/*.js', tasks.js);
+  gulp.watch('src/styles/**/*.styl', tasks.css);
+  gulp.watch('src/images/**/*', gulp.series(tasks.images, tasks.html));
+};
+
+exports.build = tasks.build;
+exports.serve = gulp.parallel(tasks.serve, tasks.watch);
 
 function check_version() {
   var clc = require("cli-color");
@@ -190,5 +193,20 @@ function check_version() {
 function debug(...args) {
   if (argv.bc_debug) {
     log('[DEBUG]', ...args);
+  }
+}
+
+function resolve_modules_dir() {
+  const module_dependency = process.env.npm_package_dependencies__sewatech_bespoke_course;
+  log('Env', module_dependency);
+  log('Env', __dirname);
+  log('Env', process.cwd());
+
+  if (module_dependency
+      && !module_dependency.toLowerCase().startsWith('file:')) {
+    return `${process.cwd()}/node_modules`
+  } else {
+    // File: dependency
+    return `${__dirname}/node_modules`
   }
 }

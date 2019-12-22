@@ -1,2 +1,6 @@
 'use strict';
-require('@sewatech/bespoke-course/gulpfile.js');
+const tasks = require('@sewatech/bespoke-course/gulptasks');
+
+exports.default = tasks.build;
+exports.build = tasks.build;
+exports.serve = tasks.serve;

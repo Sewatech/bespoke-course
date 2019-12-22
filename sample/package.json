@@ -1,9 +1,10 @@
 {
   "name": "sample",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "scripts": {
     "build": "gulp build",
     "start": "gulp serve",
+    "gulp": "gulp",
     "print": "print-slides --bc_course=$npm_package_name"
   },
   "config": {
@@ -11,7 +12,7 @@
     "ratio": "4:3"
   },
   "dependencies": {
-    "@sewatech/bespoke-course": "^0.4.0"
+    "@sewatech/bespoke-course": "file:../module"
   },
   "devDependencies": {
     "gulp": "4.x"
