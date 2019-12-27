@@ -7,7 +7,7 @@
     "print": "print-slides --bc_course=$npm_package_name"
   },
   "dependencies": {
-    "@sewatech/bespoke-course": "^0.4.0"
+    "@sewatech/bespoke-course": "^0.4.1"
   },
   "devDependencies": {
     "gulp": "4.x"

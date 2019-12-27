@@ -19,4 +19,3 @@ ifdef::title-picture[image::{title-picture}["{title}", {title-picture-width}, {t
 ****
 Un plan plus détaillé est fourni en fin de support.
 ****
-

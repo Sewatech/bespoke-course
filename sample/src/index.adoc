@@ -1,4 +1,7 @@
 = Sample Slidedeck
+John Toto Doe <https://john-toto-doe.com>
+1970-01-01
+:twitter: @JohnTotoDoe
 include::{template_dir}/headers.adoc[]
 include::{template_dir}/start.adoc[]
 
