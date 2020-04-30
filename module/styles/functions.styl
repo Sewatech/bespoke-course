@@ -23,16 +23,6 @@ set-width(parent)
       margin-right: auto;
 
 /* Font size */
-set-font-size-old(selector, font-size) 
-  {selector}
-    font-size font-size
-    &.big
-      font-size ($font-multiplier) * font-size
-    &.small
-      font-size (1 / $font-multiplier) * font-size
-    &.very-small
-      font-size (1 / $font-multiplier / $font-multiplier) * font-size
-
 set-font-size(selector-prefix, selector-suffix, font-size) 
   {selector-prefix}
     {selector-suffix}

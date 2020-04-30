@@ -1,7 +1,8 @@
 article
   font-size $base-font-size
 
-set-font-size('section', '', $base-font-size) 
+set-font-size('section', '', $base-font-size)
+set-font-size('p', '', $base-font-size) 
 
 h2
   font-size 1.3 * $base-font-size
@@ -27,9 +28,13 @@ set-font-size('.uml', '', $uml-font-size)
 set-font-size('.uml li span', '', $uml-font-size * 0.9) 
 set-font-size('.uml', 'li span', $uml-font-size * 0.9) 
 set-font-size('.uml li li span', '', $uml-font-size * 0.8) 
-set-font-size('aside[role="notes"] .uml li span', '', $uml-font-size * $notes-multiplier)
-set-font-size('aside[role="notes"] .uml', 'li span', $uml-font-size * $notes-multiplier)
-set-font-size('aside[role="notes"] .uml li li span', '', $uml-font-size * $notes-multiplier * 0.9)
+set-font-size('aside[role=notes] .uml li span', '', $uml-font-size * $notes-multiplier)
+set-font-size('aside[role=notes] .uml', 'li span', $uml-font-size * $notes-multiplier)
+set-font-size('aside[role=notes] .uml li li span', '', $uml-font-size * $notes-multiplier * 0.9)
+
+set-font-size('p', '', $base-font-size) 
+set-font-size('table p', '', $table-font-size) 
+set-font-size('aside[role="notes"] p', '', 1.5rem)
 
 set-font-size('table', '', $table-font-size) 
 
@@ -50,3 +55,7 @@ section
     font-size 1.3rem
   &:before
     font-size 1rem
+
+@media screen
+  set-font-size('aside[role=notes]', '', 1.5rem)
+  set-font-size('aside[role=notes] table', '', 1rem)
