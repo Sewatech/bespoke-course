@@ -1,6 +1,6 @@
 {
   "name": "@sewatech/bespoke-course",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "homepage": "https://github.com/Sewatech/bespoke-course/tree/master/module",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.0",
     "gulp-stylus": "^2.3.0",
-    "gulp-uglify": "^1.5.4",
+    "gulp-uglify": "^3.0.2",
     "highlight.js": "^9.15.10",
     "normalizecss": "^3.0.0",
     "puppeteer": "^2.0.0",
