@@ -9,6 +9,12 @@ ifdef::title-picture[image::{title-picture}["{title}", {title-picture-width}, {t
 
 [.cue] 
 ****
+ifdef::copyright-note[]
+[.big.margin-top-2]
+{copyright-title}
+
+{copyright-note}
+endif::[]
 ****
 
 //=========================================================

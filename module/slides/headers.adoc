@@ -10,3 +10,4 @@
 :forbidden: {nbsp} icon:ban[role="red"]
 :nbsp_x4: {nbsp} {nbsp}
 :nbsp_x16: {nbsp_x4}{nbsp_x4}{nbsp_x4}{nbsp_x4}
+:copyright-title: Copyright
