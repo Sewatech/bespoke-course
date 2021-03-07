@@ -197,13 +197,13 @@ function debug(...args) {
 }
 
 function resolve_modules_dir() {
-  const module_dependency = process.env.npm_package_dependencies__sewatech_bespoke_course;
+  const module_dependency = require(`${process.cwd()}/package.json`).dependencies['@sewatech/bespoke-course'];
   log('Env', module_dependency);
   log('Env', __dirname);
   log('Env', process.cwd());
 
-  if (module_dependency
-      && !module_dependency.toLowerCase().startsWith('file:')) {
+  if (!module_dependency
+      || !module_dependency.toLowerCase().startsWith('file:')) {
     return `${process.cwd()}/node_modules`
   } else {
     // File: dependency
