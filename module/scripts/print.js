@@ -8,7 +8,7 @@ const argv = require('yargs').argv,
     const page = await browser.newPage();
     await page.goto(`file://${process.cwd()}/public/index.html`);
     
-    await page.emulateMedia('print');
+    await page.emulateMediaType('print');
     // Pour le background transparent
     await page._emulationManager._client.send(
       'Emulation.setDefaultBackgroundColorOverride',
