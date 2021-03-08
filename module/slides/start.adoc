@@ -24,4 +24,11 @@ endif::[]
 [.cue]
 ****
 Un plan plus détaillé est fourni en fin de support.
+
+ifdef::copyright-note[]
+[.big.margin-top-5]
+{copyright-title}
+
+{copyright-note}
+endif::[]
 ****
