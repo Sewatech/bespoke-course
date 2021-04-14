@@ -39,6 +39,7 @@ set-font-size('aside[role="notes"] p', '', 1.5rem)
 set-font-size('table', '', $table-font-size) 
 
 set-font-size('.quote', '', $quote-font-size) 
+set-font-size('.quote', 'p', $quote-font-size) 
 .quote
   figcaption
     font-size 0.8em
@@ -55,6 +56,10 @@ section
     font-size 1.3rem
   &:before
     font-size 1rem
+
+.long-title
+  h2
+    font-size: 3.7rem
 
 @media screen
   set-font-size('aside[role=notes]', '', 1.5rem)

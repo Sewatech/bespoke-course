@@ -44,9 +44,10 @@ module.exports = function(options) {
       tocEntry.append(tocNumber);
       tocNumber.textContent = slideNumber;
 
-      if (section.className.indexOf("title") != -1) {
+      const classes = section.className.split(' ');
+      if (classes.includes('title')) {
         tocEntryLine.className = "toc1";
-        if (section.className.indexOf("no-small-toc") == -1) {
+        if (!classes.includes("no-small-toc")) {
           toc.append(tocEntryLine);
         }
         tocDetail.append(tocEntryLine.cloneNode(true));
