@@ -36,12 +36,16 @@ set-font-size('aside[role=notes] .uml', 'li span', $uml-font-size * $notes-multi
 set-font-size('aside[role=notes] .uml li li span', '', $uml-font-size * $notes-multiplier * 0.9)
 
 set-font-size('p', '', $base-font-size) 
+set-font-size('div', 'p', $base-font-size) 
+
+set-font-size('table', '', $table-font-size) 
 set-font-size('table p', '', $table-font-size) 
 set-font-size('table p span', '', $table-font-size) 
+set-font-size('table', 'p', $table-font-size) 
+
 set-font-size('aside[role="notes"] p', '', 1.5rem)
 set-font-size('aside[role="notes"] div', 'p', 1.5rem)
 
-set-font-size('table', '', $table-font-size) 
 
 set-font-size('.quote', '', $quote-font-size) 
 set-font-size('.quote', 'p', $quote-font-size) 
