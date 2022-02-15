@@ -19,6 +19,7 @@ ul, ol
         li
           font-size unit(1 / $font-multiplier, 'em')
 set-font-size('ul', 'li', $base-font-size)
+set-font-size('div', 'ol li', 1em) 
 
 code
   font-size 1em
@@ -36,6 +37,7 @@ set-font-size('aside[role=notes] .uml li li span', '', $uml-font-size * $notes-m
 
 set-font-size('p', '', $base-font-size) 
 set-font-size('table p', '', $table-font-size) 
+set-font-size('table p span', '', $table-font-size) 
 set-font-size('aside[role="notes"] p', '', 1.5rem)
 set-font-size('aside[role="notes"] div', 'p', 1.5rem)
 

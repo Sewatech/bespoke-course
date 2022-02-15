@@ -65,7 +65,9 @@ section
 
   aside[role=notes]
     display none
-  
+  aside[role=notes]:hover
+    display block
+
 @media (max-aspect-ratio: $screen-ratio-width / $screen-ratio-height )
   html
     font-size unit(1.8 / $screen-ratio, vw)
