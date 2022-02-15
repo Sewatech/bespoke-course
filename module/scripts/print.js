@@ -17,7 +17,7 @@ const argv = require('yargs').argv,
 
     // Notes
     await page.pdf({
-      path: `public/${course_id}.pdf`,
+      path: `public/${course_id}-notes.pdf`,
       printBackground: true, 
       format: 'A4', 
       landscape: false

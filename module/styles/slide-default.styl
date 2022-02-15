@@ -146,10 +146,13 @@ section
 
 h2:hover ~ aside[role=notes]
   display block
+aside[role=notes]:hover
+  display block
 
 aside[role=notes]
   ul
     padding-left 2rem
+    margin-bottom: 0.75rem;
     li
       font-size 1.5rem
       line-height 1.8rem
@@ -158,6 +161,8 @@ aside[role=notes]
       ul
         li
           font-size unset
+  p ~ ul
+    margin-top: -0.5rem;
   ul.uml
     padding-left 0
     li

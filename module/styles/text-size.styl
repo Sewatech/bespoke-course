@@ -6,6 +6,7 @@ set-font-size('p', '', $base-font-size)
 
 h2
   font-size 1.3 * $base-font-size
+set-font-size('h2 span', '', 1.3 * $base-font-size) 
 
 ul, ol
   ul, ol
@@ -17,7 +18,8 @@ ul, ol
       ul
         li
           font-size unit(1 / $font-multiplier, 'em')
-  
+set-font-size('ul', 'li', $base-font-size)
+
 code
   font-size 1em
 set-font-size('pre.source  ', '', $source-font-size) 
@@ -35,6 +37,7 @@ set-font-size('aside[role=notes] .uml li li span', '', $uml-font-size * $notes-m
 set-font-size('p', '', $base-font-size) 
 set-font-size('table p', '', $table-font-size) 
 set-font-size('aside[role="notes"] p', '', 1.5rem)
+set-font-size('aside[role="notes"] div', 'p', 1.5rem)
 
 set-font-size('table', '', $table-font-size) 
 
@@ -43,6 +46,7 @@ set-font-size('.quote', 'p', $quote-font-size)
 .quote
   figcaption
     font-size 0.8em
+    text-align right
     cite
       letter-spacing: -0.05em;
 
