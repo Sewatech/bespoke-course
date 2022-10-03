@@ -9,11 +9,6 @@ const argv = require('yargs').argv,
     await page.goto(`file://${process.cwd()}/public/index.html`);
     
     await page.emulateMediaType('print');
-    // Pour le background transparent
-    await page._emulationManager._client.send(
-      'Emulation.setDefaultBackgroundColorOverride',
-      { color: { r: 0, g: 0, b: 0, a: 0 } }
-    );
 
     // Notes
     await page.pdf({

@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/sewatech/asciidoctor-bespoke.git
-  revision: ce3471e7fb367669b5eacbd09d2fbeed9b0c4e11
+  remote: https://github.com/sewatech/asciidoctor-bespoke.git
+  revision: 3e60477ecc375f20ef7e71ccb43a9ae9a82d6b68
   specs:
     asciidoctor-bespoke (1.0.0.dev)
       asciidoctor (>= 1.5.0)
@@ -16,7 +16,7 @@ GEM
       tilt (>= 1.3.3, < 2.1)
     temple (0.8.2)
     thread_safe (0.3.6)
-    tilt (2.0.10)
+    tilt (2.0.11)
 
 PLATFORMS
   ruby
