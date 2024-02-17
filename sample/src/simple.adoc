@@ -87,6 +87,12 @@ No margin
 Margin left: 3 levels
 Margin right: 5 levels
 ----
+
+[source.margin-left-15.margin-top--1]
+----
+Margin left: 15 levels
+Margin top: -1 levels
+----
 // end::margin2[]
 
 [.cue]
@@ -255,5 +261,56 @@ include::simple.adoc[tag=center1]
 [source]
 ....
 include::simple.adoc[tag=center2]
+....
+****
+
+
+//=========================================================
+[]
+== Z index
+
+// tag::zindex1[]
+[.background-liteyellow.width-60.margin-left-0]
+--
+{nbsp} +
+{nbsp} +
+{nbsp} 
+--
+
+[.background-liteblue.width-60.margin-left-4.margin-top--3.z-index-1]
+--
+{nbsp} +
+z-index-1 +
+{nbsp} 
+--
+
+[.background-litered.width-60.margin-left-8.margin-top--4]
+--
+{nbsp} +
+{nbsp} +
+{nbsp} 
+--
+
+[.background-litegreen.width-60.margin-left-12.margin-top--4]
+--
+{nbsp} +
+{nbsp} +
+{nbsp} 
+--
+
+[.background-orange.width-60.margin-left-0.margin-top--4.z-index--1]
+--
+{nbsp} +
+z-index--1 +
+{nbsp} 
+--
+// end::zindex1[]
+
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=zindex1]
 ....
 ****

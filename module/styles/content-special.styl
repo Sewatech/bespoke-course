@@ -1,11 +1,13 @@
 .uml
-  background-color #cdcdcd
-  fill #cdcdcd !important
-  border solid 0.2rem grey
+  background-color $uml-color-background
+  fill $uml-color-background !important
+  border solid 0.2rem $uml-color-border
   width max-content
   margin 1rem 1rem
   -webkit-padding-start 0
   padding 0
+  .static
+    text-decoration: underline
   li
     text-align center
     padding 0
@@ -24,7 +26,22 @@
         span
           padding 0
         &:first-child
-          border-top solid 0.2rem grey
+          border-top solid 0.15rem $uml-color-border
+        &:has(.line)
+          border-bottom: solid 0.15rem $uml-color-border
+  &.interface
+    background none
+    border none
+    &::before
+      content: ""
+      background-color $uml-color-background
+      border: solid 0.15rem $uml-color-border
+      border-radius: 50%
+      display: block
+      height: 3rem
+      width: 3rem
+      margin-left: auto
+      margin-right: auto
   img 
     vertical-align 0
 

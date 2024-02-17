@@ -46,7 +46,7 @@ include::grid.adoc[tag=col2]
 * Second column
 
 // 
-* After the second column
+* Third column
 // end::col3[]
 
 [.cue]
@@ -54,6 +54,84 @@ include::grid.adoc[tag=col2]
 [source]
 ....
 include::grid.adoc[tag=col3]
+....
+****
+
+
+//=========================================================
+// tag::col4[]
+[.col-4]
+== Slide with 4 columns
+
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+* Second column
+
+// 
+* Third column
+
+// 
+* Forth column
+// end::col4[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=col4]
+....
+****
+
+
+//=========================================================
+// tag::col21[]
+[.col-21]
+== Slide with 2 columns (2+1)
+
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+* Second column
+
+// 
+* After the second column
+// end::col21[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=col21]
+....
+****
+
+
+//=========================================================
+// tag::col211[]
+[.col-211]
+== Slide with 2 columns (2+1+1)
+
+* First column
+* First column
+
+// A comment may be the separator
+* Second column
+* Second column
+
+// 
+* After the second column
+// end::col211[]
+
+[.cue]
+****
+[source]
+....
+include::grid.adoc[tag=col211]
 ....
 ****
 

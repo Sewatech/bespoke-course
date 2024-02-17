@@ -141,6 +141,8 @@ section
 
 .line-through
   text-decoration line-through
+  text-decoration-thickness: 1px
+  text-decoration-color: #a5a5a5
 .underline
   text-decoration underline
 
@@ -150,6 +152,7 @@ aside[role=notes]:hover
   display block
 
 aside[role=notes]
+  margin-top: 0
   ul
     padding-left 2rem
     margin-bottom: 0.75rem;
@@ -162,7 +165,7 @@ aside[role=notes]
         li
           font-size unset
   p ~ ul
-    margin-top: -0.5rem;
+    margin-top: 0
   ul.uml
     padding-left 0
     li

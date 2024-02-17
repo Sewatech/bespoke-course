@@ -1,16 +1,19 @@
 /* Margin and padding */
 set-margin(class, position, max) 
-  for index in (0..max) 
+  min = 0 - max
+  for index in (min..max) 
     {class}\.margin-{position}-{index} 
       margin-{position} 2.5rem * index
 
 set-padding(class, position, max) 
-  for index in (0..max) 
+  min = 0
+  for index in (min..max) 
     {class}\.padding-{position}-{index} 
       padding-{position} 2.5rem * index
 
 set-position(position, max) 
-  for index in (0..max) 
+  min = 0 - max
+  for index in (min..max) 
     .{position}-{index} 
       position absolute
       {position} 2.5rem * index
@@ -33,3 +36,23 @@ set-font-size(selector-prefix, selector-suffix, font-size)
       font-size (1 / $font-multiplier) * font-size
     &.very-small {selector-suffix}
       font-size (1 / $font-multiplier / $font-multiplier) * font-size
+
+/* z-index */
+set-zindex(max) 
+  min = 0 - max
+  for index in (min..max) 
+    \.z-index-{index} 
+      z-index: index
+
+/* colors */
+set-background-color(name, color) 
+  .background-{name}
+    background-color: color
+  pre.source.background-{name} code
+    background-color: color
+
+set-text-color(name, color) 
+  .text-{name}
+    color: color
+  pre.source.text-{name} code
+    color: color

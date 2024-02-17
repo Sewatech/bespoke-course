@@ -123,10 +123,46 @@ include::special.adoc[tag=admonition2]
 [.center]
 == UML
 
-[.uml.margin-top-3]
+[.grid.col-2.margin-top-3]
+--
+[.uml]
 * fr.sewatech.course.SomeClass
+** [.static]#echo(input: String) : String#
+** [.line]#echo(input: String) : String#
+** valid : boolean
+
+[.uml.interface]
+* fr.sewatech.course.SomeInterface
 ** echo(input: String) : String
 ** isValid() : boolean
+--
+
+[.grid.col-3]
+--
+[.uml.background-litered.text-red]
+* background-litered
+** text-red
+
+[.uml.background-litegrey.text-grey]
+* background-litegrey
+** text-grey
+
+[.uml.background-pink.text-purple]
+* background-pink
+** text-purple
+
+[.uml.background-liteblue.text-blue]
+* background-liteblue
+** text-blue
+
+[.uml.background-litegreen.text-green]
+* background-green
+** text-green
+
+[.uml.background-liteyellow.text-orange]
+* background-liteyellow
+** text-orange
+--
 // end::uml1[]
 
 [.cue]
@@ -273,6 +309,78 @@ public class VerySmallSourceCode {
 [source]
 ....
 include::special.adoc[tag=source]
+....
+****
+
+
+//=========================================================
+// tag::source-color[]
+[]
+== Colored source code
+
+[.grid.col-2.margin-top-1]
+--
+[source.small.background-litered.text-red, subs="verbatim,quotes"]
+----
+public class LiteRedSourceCode {
+    public void red() {
+        return;
+    }
+}
+----
+
+[source.small.background-litegrey.text-grey, subs="verbatim,quotes"]
+----
+public class LiteGreySourceCode {
+    public void grey() {
+        return;
+    }
+}
+----
+
+[source.small.background-pink.text-purple, subs="verbatim,quotes"]
+----
+public class PinkSourceCode {
+    public void purple() {
+        return;
+    }
+}
+----
+
+[source.small.background-liteblue.text-blue, subs="verbatim,quotes"]
+----
+public class LiteBlueSourceCode {
+    public void blue() {
+        return;
+    }
+}
+----
+
+[source.small.background-litegreen.text-green, subs="verbatim,quotes"]
+----
+public class LiteGreenSourceCode {
+    public void green() {
+        return;
+    }
+}
+----
+
+[source.small.background-liteyellow.text-orange, subs="verbatim,quotes"]
+----
+public class LiteYellowSourceCode {
+    public void orange() {
+        return;
+    }
+}
+----
+--
+// end::source-color[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=source-color]
 ....
 ****
 

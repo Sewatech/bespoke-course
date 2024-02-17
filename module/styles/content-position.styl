@@ -49,9 +49,16 @@ set-position(bottom, 20)
     height 100%
     object-fit contain
 
+set-zindex(20)
+
+// legacy
 .background
   position absolute
   z-index -1
 .foreground
   position absolute
   z-index 1
+.z-neg
+  z-index: -100
+.z-pos
+  z-index: 100
