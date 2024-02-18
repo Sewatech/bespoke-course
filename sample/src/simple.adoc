@@ -32,6 +32,40 @@ include::simple.adoc[tag=bullet]
 
 
 //=========================================================
+// tag::small[]
+[]
+== Medium & [.small]#Small# & [.very-small]#Very Small#
+
+* Medium & [.small]#Small# & [.very-small]#Very Small#
+** Medium & [.small]#Small# & [.very-small]#Very Small#
+*** Medium & [.small]#Small# & [.very-small]#Very Small#
+
+//
+
+[.level2]
+** Medium & [.small]#Small# & [.very-small]#Very Small#
+*** Medium & [.small]#Small# & [.very-small]#Very Small#
+
+//
+
+[.center]
+--
+{nbsp} +
+Medium & [.small]#Small# & [.very-small]#Very Small#
+--
+
+// end::small[]
+
+[.cue]
+****
+[source]
+....
+include::simple.adoc[tag=small]
+....
+****
+
+
+//=========================================================
 // tag::margin1[]
 []
 == Margin & padding

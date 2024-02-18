@@ -3,6 +3,7 @@ article
 
 set-font-size('section', '', $base-font-size)
 set-font-size('p', '', $base-font-size) 
+set-font-size('span', '', $base-font-size) 
 
 h2
   font-size 1.3 * $base-font-size
@@ -22,16 +23,14 @@ set-font-size('div', 'ul li', $base-font-size)
 set-font-size('ul', 'li', $base-font-size)
 set-font-size('div', 'ol li', 1em) 
 
-code
-  font-size 1em
-set-font-size('pre.source  ', '', $source-font-size) 
-pre.source code
-  font-size 1em
+set-font-size('pre.source', '', $source-font-size) 
+set-font-size('pre.source', 'code', $source-font-size) 
+set-font-size('pre.source code span', '', $source-font-size) 
 
 set-font-size('.uml', 'li', $uml-font-size) 
+set-font-size('.uml', 'li span', $uml-font-size) 
 set-font-size('.uml', 'li li', $uml-font-size * 0.9) 
-set-font-size('aside[role=notes] .uml', 'li', $uml-font-size * $notes-multiplier)
-set-font-size('aside[role=notes] .uml', 'li li', $uml-font-size * $notes-multiplier * 0.9)
+set-font-size('.uml', 'li li span', $uml-font-size * 0.9) 
 
 set-font-size('p', '', $base-font-size) 
 set-font-size('div', 'p', $base-font-size) 

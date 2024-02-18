@@ -386,6 +386,33 @@ include::special.adoc[tag=source-color]
 
 
 //=========================================================
+[]
+== Sized source code
+
+// tag::source-size[]
+
+[source.width-80, subs="verbatim,quotes"]
+----
+public interface MediumSourceCode {
+    public void [.big]#big()#;
+    public void medium();
+    public void [.small]#small()#;
+    public void [.very-small]#very-small()#;
+}
+----
+
+// end::source-size[]
+
+[.cue]
+****
+[source]
+....
+include::special.adoc[tag=source-size]
+....
+****
+
+
+//=========================================================
 // tag::table[]
 [.col-2]
 == Table
