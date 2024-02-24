@@ -1,9 +1,11 @@
 article
   font-size $base-font-size
+aside[role=notes]
+  font-size $base-font-size * $notes-multiplier
 
 set-font-size('section', '', $base-font-size)
 set-font-size('p', '', $base-font-size) 
-set-font-size('span', '', $base-font-size) 
+//set-font-size('span', '', $base-font-size) 
 
 h2
   font-size 1.3 * $base-font-size
@@ -40,10 +42,6 @@ set-font-size('table p', '', $table-font-size)
 set-font-size('table p span', '', $table-font-size) 
 set-font-size('table', 'p', $table-font-size) 
 
-set-font-size('aside[role="notes"] p', '', 1.5rem)
-set-font-size('aside[role="notes"] div', 'p', 1.5rem)
-
-
 set-font-size('.quote', '', $quote-font-size) 
 set-font-size('.quote', 'p', $quote-font-size) 
 .quote
@@ -67,7 +65,3 @@ section
 .long-title
   h2
     font-size: 3.7rem
-
-@media screen
-  set-font-size('aside[role=notes]', '', 1.5rem)
-  set-font-size('aside[role=notes] table', '', 1rem)

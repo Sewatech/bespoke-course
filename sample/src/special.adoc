@@ -401,6 +401,19 @@ public interface MediumSourceCode {
 }
 ----
 
+// FIXME
+
+[source.small.width-80, subs="verbatim,quotes"]
+----
+public interface SmallsSourceCode {
+    // FIXME: use em unit?
+    public void [.big]#big()#;
+    public void medium();
+    public void [.small]#small()#;
+    public void [.very-small]#very-small()#;
+}
+----
+
 // end::source-size[]
 
 [.cue]

@@ -36,16 +36,17 @@ set-font-size(selector-prefix, selector-suffix, font-size)
       font-size (1 / $font-multiplier) * font-size
     &.very-small {selector-suffix}
       font-size (1 / $font-multiplier / $font-multiplier) * font-size
-  aside[role=notes]
-    {selector-prefix}
-      {selector-suffix}
-        font-size font-size * $notes-multiplier
-      &.big {selector-suffix}
-        font-size ($font-multiplier) * font-size * $notes-multiplier
-      &.small {selector-suffix}
-        font-size (1 / $font-multiplier) * font-size * $notes-multiplier
-      &.very-small {selector-suffix}
-        font-size (1 / $font-multiplier / $font-multiplier) * font-size * $notes-multiplier
+  if unit(font-size) != 'em'
+    aside[role=notes]
+      {selector-prefix}
+        {selector-suffix}
+          font-size font-size * $notes-multiplier
+        &.big {selector-suffix}
+          font-size ($font-multiplier) * font-size * $notes-multiplier
+        &.small {selector-suffix}
+          font-size (1 / $font-multiplier) * font-size * $notes-multiplier
+        &.very-small {selector-suffix}
+          font-size (1 / $font-multiplier / $font-multiplier) * font-size * $notes-multiplier
 
 /* z-index */
 set-zindex(max) 
