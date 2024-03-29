@@ -27,6 +27,10 @@ set-width(parent)
 
 /* Font size */
 set-font-size(selector-prefix, selector-suffix, font-size) 
+  if (unit(font-size) == 'em')
+    multiplier = 1
+  else 
+    multiplier = $notes-multiplier
   {selector-prefix}
     {selector-suffix}
       font-size font-size
@@ -39,13 +43,13 @@ set-font-size(selector-prefix, selector-suffix, font-size)
   aside[role=notes]
     {selector-prefix}
       {selector-suffix}
-        font-size font-size * $notes-multiplier
+        font-size font-size * multiplier
       &.big {selector-suffix}
-        font-size ($font-multiplier) * font-size * $notes-multiplier
+        font-size ($font-multiplier) * font-size * multiplier
       &.small {selector-suffix}
-        font-size (1 / $font-multiplier) * font-size * $notes-multiplier
+        font-size (1 / $font-multiplier) * font-size * multiplier
       &.very-small {selector-suffix}
-        font-size (1 / $font-multiplier / $font-multiplier) * font-size * $notes-multiplier
+        font-size (1 / $font-multiplier / $font-multiplier) * font-size * multiplier
 
 /* z-index */
 set-zindex(max) 
