@@ -34,7 +34,7 @@ ul
       ul 
         li
           margin 0.3rem 0 0 0.6rem
-          list-style-type: square
+          list-style-type square
   &.level2 
     margin 0.6rem 0.5px 0.6rem 2.5rem
     li
@@ -49,35 +49,48 @@ a
   color #2e2e2e
 
 code
-  color #707070
+  color #303030
 
 pre.source  
-  margin 0.5rem 1rem
+  margin 0.5rem 0
   border 0.1rem solid #888  
   background-color #fff6d1
   code
     padding 0.1rem 0.2rem
     // already in .hljs, useful when no language
     background-color #fff6d1
-    display: block;
-    overflow-x: auto;
-    color: #000;
+    display block;
+    overflow-x auto;
+    color #000;
   &.blue
-    background-color: #ccffff
+    background-color #ccffff
     code
-      background-color: #ccffff
+      background-color #ccffff
   &.green
-    background-color: #ccff00
+    background-color #ccff00
     code
-      background-color: #ccff00
+      background-color #ccff00
   &.red
-    background-color: #ffccff
+    background-color #ffccff
     code
-      background-color: #ffccff
-
+      background-color #ffccff
   &.fit-content
-    width: max-content
-    padding-right: 2rem
+    width max-content
+    padding-right 2rem
+  &.linux
+    code
+      background-image url(../images/logo/tux.svg);
+      background-repeat no-repeat
+      background-position-y top
+      background-position-x right
+      background-size 2rem
+  &.windows
+    code
+      background-image url(../images/logo/windows.svg)
+      background-repeat no-repeat
+      background-position-y top
+      background-position-x right
+      background-size 2rem
 
 .quote
   margin 3rem 5rem
@@ -87,27 +100,27 @@ pre.source
     p
       font-family "Noto Serif"
       letter-spacing 0.2rem
-      line-height: 1.45;
-      font-style: italic;
+      line-height 1.45;
+      font-style italic;
         // text-align justify
       &::before
-        content: "\201c\00a0";
-        font-weight: bold;
-        color: #7a2717;
+        content "\201c\00a0";
+        font-weight bold;
+        color #7a2717;
       &::after
         content "\00a0\201d";
-        font-weight: bold;
-        color: #7a2717;  
+        font-weight bold;
+        color #7a2717;  
   figcaption
     margin-left 2rem
     cite
       color #666
       &::before
-        content: " - "
+        content " - "
 
 section
   &:after
-    counter-increment: page-number; 
+    counter-increment page-number; 
     content counter(page-number)
     position absolute
     bottom 0.6rem
@@ -141,8 +154,8 @@ section
 
 .line-through
   text-decoration line-through
-  text-decoration-thickness: 1px
-  text-decoration-color: #a5a5a5
+  text-decoration-thickness 2px
+  text-decoration-color #a5a5a5
 .underline
   text-decoration underline
 
@@ -152,10 +165,10 @@ aside[role=notes]:hover
   display block
 
 aside[role=notes]
-  margin-top: 0
+  margin-top 0
   ul
     padding-left 2rem
-    margin-bottom: 0.75rem;
+    margin-bottom 0.75rem;
     li
       line-height 1.8rem
       margin 0.3rem 0
@@ -163,8 +176,11 @@ aside[role=notes]
       ul
         li
           font-size unset
+  ul.small
+    li
+      margin 0.1rem 0
   p ~ ul
-    margin-top: 0
+    margin-top 0
   ul.uml
     padding-left 0
     li
@@ -181,7 +197,7 @@ aside[role=notes]
     padding 10%
     padding-top 2rem
     height 100%
-    width: 100%
+    width 100%
   .title aside[role=notes]
     background-color $title-color-background
     margin-top 15rem

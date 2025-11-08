@@ -4,7 +4,7 @@
 
 ifdef::title-picture[image::{title-picture}["{title}", {title-picture-width}, {title-picture-height}]]
 
-[.author.margin-top-5]
+[.author]
 * {author}
 
 [.cue] 

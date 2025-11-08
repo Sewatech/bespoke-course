@@ -10,6 +10,17 @@ set-padding(class, position, max)
   for index in (min..max) 
     {class}\.padding-{position}-{index} 
       padding-{position} 2.5rem * index
+set-padding-small(class, position, max) 
+  min = 0
+  for index in (min..max) 
+    {class}\.padding-small-{position}-{index} 
+      padding-{position} 0.5rem * index
+set-all-padding-small(class, max) 
+  min = 0
+  for index in (min..max) 
+    {class}\.padding-small-{index} 
+      padding 0.5rem * index
+
 
 set-position(position, max) 
   min = 0 - max
@@ -70,3 +81,9 @@ set-text-color(name, color)
     color: color
   pre.source.text-{name} code
     color: color
+
+set-all-border(class, max, color) 
+  min = 0
+  for index in (min..max) 
+    {class}\.border-{index} 
+      border solid 1px * index color

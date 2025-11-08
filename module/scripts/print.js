@@ -4,7 +4,9 @@ const argv = require('yargs').argv,
 
 (async() => {
     const course_id = argv.bc_course || 'course'
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox'],
+    });
     const page = await browser.newPage();
     await page.goto(`file://${process.cwd()}/public/index.html`);
     

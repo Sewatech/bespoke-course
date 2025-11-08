@@ -47,7 +47,7 @@ set-font-size('.quote', 'p', $quote-font-size)
     font-size 0.8em
     text-align right
     cite
-      letter-spacing: -0.05em;
+      letter-spacing -0.05em
 
 set-font-size('.admonitionblock', '', $admonition-font-size) 
 .admonitionblock
@@ -66,4 +66,7 @@ section
 
 .long-title
   h2
-    font-size: 3.7rem
+    font-size 3.7rem
+
+.no-break, .no-break code
+  word-break keep-all

@@ -7,7 +7,7 @@
   -webkit-padding-start 0
   padding 0
   .static
-    text-decoration: underline
+    text-decoration underline
   li
     text-align center
     padding 0
@@ -15,7 +15,7 @@
     span
       padding 0 1rem
     ul
-      padding: 0
+      padding 0
       li
         text-align left
         list-style-type none
@@ -28,40 +28,41 @@
         &:first-child
           border-top solid 0.15rem $uml-color-border
         &:has(.line)
-          border-bottom: solid 0.15rem $uml-color-border
+          border-bottom solid 0.15rem $uml-color-border
   &.interface
     background none
     border none
     &::before
-      content: ""
+      content ""
       background-color $uml-color-background
-      border: solid 0.15rem $uml-color-border
-      border-radius: 50%
-      display: block
-      height: 3rem
-      width: 3rem
-      margin-left: auto
-      margin-right: auto
+      border solid 0.15rem $uml-color-border
+      border-radius 50%
+      display block
+      height 3rem
+      width 3rem
+      margin-left auto
+      margin-right auto
   img 
     vertical-align 0
 
 table
   color #000000
   margin 1rem
-  width 100% - 2rem
+  &.stretch
+    width 98%
   p
     line-height 1.1
     margin 0
   thead tr th
     background-color #b3b3b3
-    padding 0.4rem 0.2rem 0.6rem 1rem 
+    padding 0.4rem 1rem 0.6rem 1rem 
   tbody 
     tr:nth-child(odd)
-      background-color: #cccccc
+      background-color #cfcfcf
     tr:nth-child(even)
-      background-color: #e6e6e6
+      background-color #e6e6e6
     tr td
-      padding: 0.4rem 0.2rem 0.4rem 1rem
+      padding 0.4rem 1rem
   .halign-center
     text-align center
   .halign-left
@@ -70,18 +71,18 @@ table
     text-align right
 
 .not
-  position: relative;
+  position relative;
 .not::after
-  content: ""
-  background-image: url('../images/misc/not.svg');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  top: 0
-  left: 0
-  position: absolute
-  width: 100%
-  height: 100%
-  display: block
+  content ""
+  background-image url('../images/misc/not.svg');
+  background-size 100% 100%;
+  background-repeat no-repeat;
+  top 0
+  left 0
+  position absolute
+  width 100%
+  height 100%
+  display block
 
 .admonitionblock
   table
@@ -154,4 +155,8 @@ table
   visibility hidden
 
 .inline > *
-  display: inline-block
+  display inline-block
+
+.reference
+  font-weight bold
+  margin-top 1.5rem
