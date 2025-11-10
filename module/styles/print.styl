@@ -34,6 +34,10 @@ $notes-height-mm = $page-height-mm - $slide-height-mm - $top-margin-mm - $middle
 @media print and (orientation:portrait)
   @page
     size A4
+    margin-top $top-margin-mm
+
+  @page:first
+    margin-top 0      
 
   html
     font-size unit(11 / $screen-ratio, 'px')
@@ -52,7 +56,7 @@ $notes-height-mm = $page-height-mm - $slide-height-mm - $top-margin-mm - $middle
   .bespoke-slide
     opacity 1
     background none
-    margin $top-margin-mm auto $slide-bottom-margin-mm auto  // Bottom margin is useful for "Emulate CSS Media : print" on Chrome
+    margin 0 auto $slide-bottom-margin-mm auto
     page-break-after always
 
     pre.source

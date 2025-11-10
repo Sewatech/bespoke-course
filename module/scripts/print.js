@@ -17,7 +17,14 @@ const argv = require('yargs').argv,
       path: `public/${course_id}-notes.pdf`,
       printBackground: true, 
       format: 'A4', 
-      landscape: false
+      // margin: {
+      //   top: "20mm",
+      //   right: "0mm",
+      //   bottom: "0mm",
+      //   left: "0mm"
+      // },
+      landscape: false,
+      preferCSSPageSize: true
     });
     
     // Slides
